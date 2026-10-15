@@ -50,6 +50,8 @@ class EngineTests(unittest.TestCase):
         index = VectorIndex(self.records[:2], [[1, 0], [0, 1]])
         result = answer('Example?', 'rag', self.records, Fake(), index, k=1)
         self.assertIsNone(result['query_embedding_tokens'])
+        self.assertEqual(result['query_embedding_tokens_estimate'], 2)
+        self.assertEqual(result['embedding_tokens_source'], 'not_reported')
         self.assertIsNone(result['llm_total_tokens'])
 
     def test_index_resume_avoids_repeat_api_calls(self):
@@ -61,11 +63,21 @@ class EngineTests(unittest.TestCase):
                 return [1, inner.calls], None
         client = Fake()
         with tempfile.TemporaryDirectory() as directory:
-            build_index(client, self.records[:2], directory)
+            _, first_setup = build_index(client, self.records[:2], directory)
             _, setup = build_index(client, self.records[:2], directory)
         self.assertEqual(client.calls, 2)
         self.assertEqual(setup['new_embeddings'], 0)
         self.assertIsNone(setup['index_tokens'])
+        self.assertGreater(setup['index_tokens_estimate'], 0)
+        self.assertEqual(setup['index_tokens_estimate'], first_setup['index_tokens_estimate'])
+        self.assertEqual(setup['index_tokens_source'], 'not_reported')
+
+    def test_embedding_reported_count_stays_separate_from_estimates(self):
+        client = Gemini('test-key')
+        for usage, expected in [({'promptTokenCount': 7}, 7), ({'totalTokenCount': 9}, 9), ({}, None)]:
+            with self.subTest(usage=usage), patch.object(client, 'request', return_value={'embedding': {'values': [1, 0]}, 'usageMetadata': usage}):
+                _, count = client.embed('Example?')
+                self.assertEqual(count, expected)
 
     def test_api_response_parsing_preserves_usage(self):
         client = Gemini('test-key')
@@ -78,3 +90,4 @@ class EngineTests(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
