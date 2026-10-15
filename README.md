@@ -10,7 +10,7 @@ Verified on 2026-10-15: real Gemini responses for all three methods on the deplo
 
 Website: https://company-policy-assistant-zku6lrhufuwuew3dsaeggm.streamlit.app/
 
-See [the two-paragraph comparison](comparison.md) and [the evaluation protocol, raw exports and reviewed results](results/README.md). Full context is preferred for this small database on the present evidence; RAG substantially reduces generation tokens. The sample is limited and embedding token usage remains unavailable.
+See [the two-paragraph comparison](comparison.md) and [the evaluation protocol, raw exports and reviewed results](results/README.md). Full context is preferred for this small database on the present evidence; RAG substantially reduces generation tokens. The sample is limited. Embedding counts are shown as API-reported where available, with separately labelled rough estimates when the provider omits them.
 
 ## Start locally
 
@@ -51,7 +51,7 @@ The website allows manual accuracy and unsupported-claim review and computes the
 
 Download `policy_test_results.json` before closing the session: session results are not permanently stored by the website. Preserve error records and report them separately, rather than counting failed calls as successful zero-token answers. Repeat the same questions if you need a more reliable estimate; report sample size and repetition protocol. Keep model, prompt, database, top-k and generation settings fixed during the final comparison.
 
-Timing includes retrieval and generation for each question, but excludes the initial policy index construction. Record the setup separately. LLM usage comes directly from API metadata (input, output, thinking and total); query embedding tokens are separate and shown as **Not reported** if absent. Total generation tokens can exceed input + output because of thinking tokens. Rules use zero LLM tokens. Lower LLM token use is not by itself proof of lower total cost: embeddings also consume quota/resources.
+Timing includes retrieval and generation for each question, but excludes the initial policy index construction. Record the setup separately. LLM usage comes directly from API metadata (input, output, thinking and total); query embedding tokens are separate. When absent, the website shows a clearly labelled estimate using `ceil(characters / 4)` for each input. The exact API count remains null in downloads; estimates and their method are stored in separate fields. Index estimates sum this heuristic over the exact JSON strings embedded for each policy. Cached vectors are reused without new embedding calls. This English-text heuristic is not model tokenization or billing usage, may differ substantially for other languages, and excludes task framing and truncation. The recorded evaluation displays retrospective estimates without changing the original evidence. Total generation tokens can exceed input + output because of thinking tokens. Rules use zero LLM tokens. Lower LLM token use is not by itself proof of lower total cost: embeddings also consume quota/resources.
 
 Optional command-line measurements:
 
