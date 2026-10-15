@@ -6,7 +6,11 @@ Python assignment implementing three genuinely distinct approaches over the supp
 
 Implemented: three methods, website, measurements, manual review, result download, resumable embedding setup, benchmark runner and Slack bot code.
 
-Not yet verified: live Gemini calls, the deployed website and a Slack workspace interaction. No AI measurements, preferred-method conclusion or Slack screenshot have been invented. These steps require account configuration and real testing.
+Verified on 2026-10-15: real Gemini responses for all three methods on the deployed website, ten questions with 30 reviewed answers, and a user-supplied Slack screenshot showing full-context generation with P095 in #aeron-policy-test. The student confirmed the lecturer invitation was sent. The public website was also opened in a separate browser session. Eight engine unit tests passed.
+
+Website: https://company-policy-assistant-zku6lrhufuwuew3dsaeggm.streamlit.app/
+
+See [the two-paragraph comparison](comparison.md) and [the evaluation protocol, raw exports and reviewed results](results/README.md). Full context is preferred for this small database on the present evidence; RAG substantially reduces generation tokens. The sample is limited and embedding token usage remains unavailable.
 
 ## Start locally
 
@@ -90,7 +94,7 @@ The bot defaults to `rules` so initial Slack testing does not require Gemini quo
 * Source repository: https://github.com/AeronTekle/company-policy-assistant
 * Actual Slack test screenshot.
 
-The invitation and separate student-identifying workspace/channel are also required outcomes. This repository is code, not a completed four-item submission yet.
+The invitation and separate student-identifying workspace/channel are also required outcomes. The comparison and measured evidence are now included in this repository. For submission, attach the genuine Slack screenshot and include the website URL, repository URL and two-paragraph comparison. The screenshot and invitation are documented in the conversation, not independently stored as repository evidence.
 
 ## Documentation used
 
@@ -99,3 +103,4 @@ The invitation and separate student-identifying workspace/channel are also requi
 * Gemini generation: https://ai.google.dev/api/generate-content
 * Streamlit deployment: https://docs.streamlit.io/deploy/streamlit-community-cloud/deploy-your-app
 * Slack Socket Mode: https://docs.slack.dev/tools/bolt-python/concepts/socket-mode/
+
