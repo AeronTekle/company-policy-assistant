@@ -139,5 +139,20 @@ if valid:
 else:
     st.info("No measured results yet. Ask a question to begin.")
 
+# Persisted evidence is separate from the current browser session's measurements.
+from pathlib import Path
+recorded_root = Path(__file__).resolve().parent
+recorded_comparison = recorded_root / "comparison.md"
+recorded_summary = recorded_root / "results" / "summary_2026-10-15.json"
+recorded_evidence = recorded_root / "results" / "evaluation_2026-10-15.json"
+if recorded_comparison.exists() and recorded_summary.exists() and recorded_evidence.exists():
+    st.subheader("Recorded evaluation · 10 questions / 30 answers")
+    st.caption("Measured on 15 October 2026 across two sessions. This saved evaluation is independent of the live-session history above. Reviews assess accuracy, relevance and support against the CSV.")
+    st.markdown(recorded_comparison.read_text(encoding="utf-8"))
+    st.dataframe(json.loads(recorded_summary.read_text(encoding="utf-8")), hide_index=True, use_container_width=True)
+    st.caption("LLM token counts exclude embeddings. Index preparation: 45.1158 seconds. Embedding token usage was not reported. These selected tests do not establish a general hallucination rate.")
+    st.download_button("Download recorded evaluation and evidence notes", recorded_evidence.read_text(encoding="utf-8"), "policy_evaluation_2026-10-15.json", "application/json")
+
 with st.expander("Policy database — source of truth"):
     st.dataframe(records, hide_index=True, use_container_width=True)
+
