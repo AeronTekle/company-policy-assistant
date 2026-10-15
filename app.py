@@ -1,7 +1,7 @@
 import json
 import os
 import streamlit as st
-from policy_engine import DEFAULT_MODEL, DEFAULT_EMBEDDING, Gemini, PolicyError, load_policies, build_index, answer
+from policy_engine import DEFAULT_MODEL, DEFAULT_EMBEDDING, EMBEDDING_ESTIMATE_METHOD, estimate_embedding_tokens, Gemini, PolicyError, load_policies, build_index, answer
 
 st.set_page_config(page_title="Company Policy Assistant", page_icon="📖", layout="wide")
 
@@ -61,6 +61,7 @@ with st.sidebar:
         with st.expander("Index setup measurements"):
             st.json(st.session_state.index_setup)
             st.caption("Index preparation is separate from per-question time. Missing token counts are not treated as zero.")
+            st.caption(f"Estimated policy embedding tokens: {sum(estimate_embedding_tokens(json.dumps(r)) for r in records):,}. {EMBEDDING_ESTIMATE_METHOD}. This describes the entire index, not tokens spent loading cached vectors.")
 
 with st.form("question"):
     question = st.text_input("Ask a company policy question", value="How many vacation days do employees receive?", max_chars=2000)
@@ -95,7 +96,12 @@ if results:
             st.write(f"**LLM tokens:** {token(result['llm_total_tokens'])}")
             st.caption(f"Input {token(result['input_tokens'])} · Output {token(result['output_tokens'])} · Thinking {token(result['thinking_tokens'])}")
             if result["method"] == "rag":
-                st.caption(f"Query embedding tokens: {token(result['query_embedding_tokens'])}")
+                if result["query_embedding_tokens"] is not None:
+                    st.caption(f"Query embedding tokens: {result['query_embedding_tokens']} (API-reported)")
+                else:
+                    estimate = result.get("query_embedding_tokens_estimate", estimate_embedding_tokens(result["question"]))
+                    st.caption(f"Query embedding tokens: approximately {estimate} (estimated)")
+                    st.caption(f"API count not reported. {EMBEDDING_ESTIMATE_METHOD}.")
             st.write("**Relevant policies**")
             if not result["policies"]:
                 st.caption("No valid policy cited.")
@@ -151,6 +157,13 @@ if recorded_comparison.exists() and recorded_summary.exists() and recorded_evide
     st.markdown(recorded_comparison.read_text(encoding="utf-8"))
     st.dataframe(json.loads(recorded_summary.read_text(encoding="utf-8")), hide_index=True, use_container_width=True)
     st.caption("LLM token counts exclude embeddings. Index preparation: 45.1158 seconds. Embedding token usage was not reported. These selected tests do not establish a general hallucination rate.")
+    saved_results = json.loads(recorded_evidence.read_text(encoding="utf-8"))["results"]
+    saved_rag = [r for r in saved_results if r.get("method") == "rag" and "error" not in r]
+    if saved_rag:
+        estimated_query_tokens = sum(estimate_embedding_tokens(r["question"]) for r in saved_rag)
+        estimated_index_tokens = sum(estimate_embedding_tokens(json.dumps(r)) for r in records)
+        st.info(f"Embedding token estimates: approximately {estimated_query_tokens:,} across the {len(saved_rag)} recorded RAG queries (mean {estimated_query_tokens / len(saved_rag):.1f}); approximately {estimated_index_tokens:,} to embed the current {len(records)} policies once. These are rough estimates, not API-reported usage.")
+        st.caption(f"Method: {EMBEDDING_ESTIMATE_METHOD}. Calculated from saved questions and serialized policy text; excludes task framing and any provider truncation. Original measurements and generation-token totals are preserved.")
     st.download_button("Download recorded evaluation and evidence notes", recorded_evidence.read_text(encoding="utf-8"), "policy_evaluation_2026-10-15.json", "application/json")
 
 with st.expander("Policy database — source of truth"):
