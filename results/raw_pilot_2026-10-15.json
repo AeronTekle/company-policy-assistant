@@ -1,0 +1,514 @@
+{
+  "results": [
+    {
+      "question": "How many vacation days do employees receive?",
+      "method": "rules",
+      "answer": "Vacation Policy: Employees receive 15 vacation days per year. Unused days may roll over.\n\nHoliday Schedule Policy: Company holidays are published annually and observed accordingly.\n\nPerformance Review Policy: Employees receive formal performance reviews annually.",
+      "policies": [
+        {
+          "id": "P095",
+          "title": "Vacation Policy",
+          "department": "IT",
+          "policy_text": "Employees receive 15 vacation days per year. Unused days may roll over.",
+          "category": "Human Resources"
+        },
+        {
+          "id": "P016",
+          "title": "Holiday Schedule Policy",
+          "department": "Facilities",
+          "policy_text": "Company holidays are published annually and observed accordingly.",
+          "category": "Human Resources"
+        },
+        {
+          "id": "P001",
+          "title": "Performance Review Policy",
+          "department": "Sales",
+          "policy_text": "Employees receive formal performance reviews annually.",
+          "category": "Human Resources"
+        }
+      ],
+      "invalid_policy_ids": [],
+      "retrieved": [],
+      "seconds": 0.0009,
+      "model": null,
+      "embedding_model": null,
+      "context_policy_count": 3,
+      "top_k": null,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "thinking_tokens": 0,
+      "llm_total_tokens": 0,
+      "query_embedding_tokens": 0,
+      "raw_usage": {},
+      "created_at": "2026-10-15T18:08:35.509180+00:00",
+      "database_sha256": "f8f9d2988ec082f1ea82212386535869ece8dabb8f10fe31d3959bb5b2f3e458",
+      "review": {
+        "accuracy": "unreviewed",
+        "unsupported": "unreviewed",
+        "notes": ""
+      }
+    },
+    {
+      "question": "How many vacation days do employees receive?",
+      "method": "full_context",
+      "answer": "Employees receive 15 vacation days per year, and unused days may roll over.",
+      "policies": [
+        {
+          "id": "P095",
+          "title": "Vacation Policy",
+          "department": "IT",
+          "policy_text": "Employees receive 15 vacation days per year. Unused days may roll over.",
+          "category": "Human Resources"
+        }
+      ],
+      "invalid_policy_ids": [],
+      "retrieved": [],
+      "seconds": 1.6428,
+      "model": "gemini-3.5-flash-lite",
+      "embedding_model": null,
+      "context_policy_count": 98,
+      "top_k": null,
+      "input_tokens": 4558,
+      "output_tokens": 45,
+      "thinking_tokens": 0,
+      "llm_total_tokens": 4603,
+      "query_embedding_tokens": 0,
+      "raw_usage": {
+        "promptTokenCount": 4558,
+        "candidatesTokenCount": 45,
+        "totalTokenCount": 4603,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 4558
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "created_at": "2026-10-15T18:08:37.153005+00:00",
+      "database_sha256": "f8f9d2988ec082f1ea82212386535869ece8dabb8f10fe31d3959bb5b2f3e458",
+      "review": {
+        "accuracy": "unreviewed",
+        "unsupported": "unreviewed",
+        "notes": ""
+      }
+    },
+    {
+      "method": "rag",
+      "error": "Build the vector index before asking RAG questions.",
+      "question": "How many vacation days do employees receive?"
+    },
+    {
+      "question": "How many vacation days do employees receive?",
+      "method": "rules",
+      "answer": "Vacation Policy: Employees receive 15 vacation days per year. Unused days may roll over.\n\nHoliday Schedule Policy: Company holidays are published annually and observed accordingly.\n\nPerformance Review Policy: Employees receive formal performance reviews annually.",
+      "policies": [
+        {
+          "id": "P095",
+          "title": "Vacation Policy",
+          "department": "IT",
+          "policy_text": "Employees receive 15 vacation days per year. Unused days may roll over.",
+          "category": "Human Resources"
+        },
+        {
+          "id": "P016",
+          "title": "Holiday Schedule Policy",
+          "department": "Facilities",
+          "policy_text": "Company holidays are published annually and observed accordingly.",
+          "category": "Human Resources"
+        },
+        {
+          "id": "P001",
+          "title": "Performance Review Policy",
+          "department": "Sales",
+          "policy_text": "Employees receive formal performance reviews annually.",
+          "category": "Human Resources"
+        }
+      ],
+      "invalid_policy_ids": [],
+      "retrieved": [],
+      "seconds": 0.0007,
+      "model": null,
+      "embedding_model": null,
+      "context_policy_count": 3,
+      "top_k": null,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "thinking_tokens": 0,
+      "llm_total_tokens": 0,
+      "query_embedding_tokens": 0,
+      "raw_usage": {},
+      "created_at": "2026-10-15T18:11:20.072094+00:00",
+      "database_sha256": "f8f9d2988ec082f1ea82212386535869ece8dabb8f10fe31d3959bb5b2f3e458",
+      "review": {
+        "accuracy": "partly correct",
+        "unsupported": "no",
+        "notes": "15 annual vacation days; unused days may roll over. Rules includes irrelevant policies.",
+        "reviewer": "Codex: qualitative review against the full policy CSV on 2026-10-15"
+      },
+      "previous_review": {
+        "accuracy": "partly correct",
+        "unsupported": "no",
+        "notes": ""
+      },
+      "test_id": "Q01"
+    },
+    {
+      "question": "How many vacation days do employees receive?",
+      "method": "full_context",
+      "answer": "Employees receive 15 vacation days per year, and unused days may roll over.",
+      "policies": [
+        {
+          "id": "P095",
+          "title": "Vacation Policy",
+          "department": "IT",
+          "policy_text": "Employees receive 15 vacation days per year. Unused days may roll over.",
+          "category": "Human Resources"
+        }
+      ],
+      "invalid_policy_ids": [],
+      "retrieved": [],
+      "seconds": 6.4242,
+      "model": "gemini-3.5-flash-lite",
+      "embedding_model": null,
+      "context_policy_count": 98,
+      "top_k": null,
+      "input_tokens": 4558,
+      "output_tokens": 45,
+      "thinking_tokens": 0,
+      "llm_total_tokens": 4603,
+      "query_embedding_tokens": 0,
+      "raw_usage": {
+        "promptTokenCount": 4558,
+        "candidatesTokenCount": 45,
+        "totalTokenCount": 4603,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 4558
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "created_at": "2026-10-15T18:11:26.497130+00:00",
+      "database_sha256": "f8f9d2988ec082f1ea82212386535869ece8dabb8f10fe31d3959bb5b2f3e458",
+      "review": {
+        "accuracy": "correct",
+        "unsupported": "no",
+        "notes": "15 annual vacation days; unused days may roll over.",
+        "reviewer": "Codex: qualitative review against the full policy CSV on 2026-10-15"
+      },
+      "previous_review": {
+        "accuracy": "correct",
+        "unsupported": "no",
+        "notes": ""
+      },
+      "test_id": "Q01"
+    },
+    {
+      "question": "How many vacation days do employees receive?",
+      "method": "rag",
+      "answer": "Employees receive 15 vacation days per year.",
+      "policies": [
+        {
+          "id": "P095",
+          "title": "Vacation Policy",
+          "department": "IT",
+          "policy_text": "Employees receive 15 vacation days per year. Unused days may roll over.",
+          "category": "Human Resources"
+        }
+      ],
+      "invalid_policy_ids": [],
+      "retrieved": [
+        {
+          "score": 0.693635,
+          "policy": {
+            "id": "P095",
+            "title": "Vacation Policy",
+            "department": "IT",
+            "policy_text": "Employees receive 15 vacation days per year. Unused days may roll over.",
+            "category": "Human Resources"
+          }
+        },
+        {
+          "score": 0.648854,
+          "policy": {
+            "id": "P016",
+            "title": "Holiday Schedule Policy",
+            "department": "Facilities",
+            "policy_text": "Company holidays are published annually and observed accordingly.",
+            "category": "Human Resources"
+          }
+        },
+        {
+          "score": 0.641686,
+          "policy": {
+            "id": "P075",
+            "title": "Parental Leave Policy",
+            "department": "Marketing",
+            "policy_text": "Eligible employees may take up to 12 weeks of paid parental leave.",
+            "category": "Human Resources"
+          }
+        },
+        {
+          "score": 0.641141,
+          "policy": {
+            "id": "P070",
+            "title": "Bereavement Leave Policy",
+            "department": "Legal",
+            "policy_text": "Employees may take up to 5 days of bereavement leave.",
+            "category": "Human Resources"
+          }
+        },
+        {
+          "score": 0.633635,
+          "policy": {
+            "id": "P065",
+            "title": "Sick Leave Policy",
+            "department": "Sales",
+            "policy_text": "Employees accrue sick leave monthly for personal or family illness.",
+            "category": "Human Resources"
+          }
+        }
+      ],
+      "seconds": 1.1572,
+      "model": "gemini-3.5-flash-lite",
+      "embedding_model": "gemini-embedding-001",
+      "context_policy_count": 5,
+      "top_k": 5,
+      "input_tokens": 359,
+      "output_tokens": 38,
+      "thinking_tokens": 0,
+      "llm_total_tokens": 397,
+      "query_embedding_tokens": null,
+      "raw_usage": {
+        "promptTokenCount": 359,
+        "candidatesTokenCount": 38,
+        "totalTokenCount": 397,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 359
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "created_at": "2026-10-15T18:11:27.655831+00:00",
+      "database_sha256": "f8f9d2988ec082f1ea82212386535869ece8dabb8f10fe31d3959bb5b2f3e458",
+      "review": {
+        "accuracy": "correct",
+        "unsupported": "no",
+        "notes": "15 annual vacation days; unused days may roll over.",
+        "reviewer": "Codex: qualitative review against the full policy CSV on 2026-10-15"
+      },
+      "previous_review": {
+        "accuracy": "correct",
+        "unsupported": "no",
+        "notes": ""
+      },
+      "test_id": "Q01"
+    },
+    {
+      "question": "How many paid days off do employees get to care for a pet unicorn?",
+      "method": "rules",
+      "answer": "Work From Abroad Policy: Employees may work abroad for up to 30 days with approval.\n\nRemote Work Policy: Employees may work remotely up to three days per week with manager approval.\n\nBereavement Leave Policy: Employees may take up to 5 days of bereavement leave.",
+      "policies": [
+        {
+          "id": "P010",
+          "title": "Work From Abroad Policy",
+          "department": "Facilities",
+          "policy_text": "Employees may work abroad for up to 30 days with approval.",
+          "category": "Remote Work"
+        },
+        {
+          "id": "P024",
+          "title": "Remote Work Policy",
+          "department": "Facilities",
+          "policy_text": "Employees may work remotely up to three days per week with manager approval.",
+          "category": "Remote Work"
+        },
+        {
+          "id": "P070",
+          "title": "Bereavement Leave Policy",
+          "department": "Legal",
+          "policy_text": "Employees may take up to 5 days of bereavement leave.",
+          "category": "Human Resources"
+        }
+      ],
+      "invalid_policy_ids": [],
+      "retrieved": [],
+      "seconds": 0.0012,
+      "model": null,
+      "embedding_model": null,
+      "context_policy_count": 3,
+      "top_k": null,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "thinking_tokens": 0,
+      "llm_total_tokens": 0,
+      "query_embedding_tokens": 0,
+      "raw_usage": {},
+      "created_at": "2026-10-15T18:13:52.444175+00:00",
+      "database_sha256": "f8f9d2988ec082f1ea82212386535869ece8dabb8f10fe31d3959bb5b2f3e458",
+      "review": {
+        "accuracy": "incorrect",
+        "unsupported": "no",
+        "notes": "No policy specifies paid leave to care for a pet unicorn. Rules returns unrelated existing policies instead of identifying missing information.",
+        "reviewer": "Codex: qualitative review against the full policy CSV on 2026-10-15"
+      },
+      "previous_review": {
+        "accuracy": "incorrect",
+        "unsupported": "no",
+        "notes": ""
+      },
+      "test_id": "Q02"
+    },
+    {
+      "question": "How many paid days off do employees get to care for a pet unicorn?",
+      "method": "full_context",
+      "answer": "The provided policy records do not specify any paid days off to care for a pet unicorn.",
+      "policies": [],
+      "invalid_policy_ids": [],
+      "retrieved": [],
+      "seconds": 4.6647,
+      "model": "gemini-3.5-flash-lite",
+      "embedding_model": null,
+      "context_policy_count": 98,
+      "top_k": null,
+      "input_tokens": 4565,
+      "output_tokens": 35,
+      "thinking_tokens": 0,
+      "llm_total_tokens": 4600,
+      "query_embedding_tokens": 0,
+      "raw_usage": {
+        "promptTokenCount": 4565,
+        "candidatesTokenCount": 35,
+        "totalTokenCount": 4600,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 4565
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "created_at": "2026-10-15T18:13:57.110233+00:00",
+      "database_sha256": "f8f9d2988ec082f1ea82212386535869ece8dabb8f10fe31d3959bb5b2f3e458",
+      "review": {
+        "accuracy": "correct",
+        "unsupported": "no",
+        "notes": "No policy specifies paid leave to care for a pet unicorn.",
+        "reviewer": "Codex: qualitative review against the full policy CSV on 2026-10-15"
+      },
+      "previous_review": {
+        "accuracy": "correct",
+        "unsupported": "no",
+        "notes": ""
+      },
+      "test_id": "Q02"
+    },
+    {
+      "question": "How many paid days off do employees get to care for a pet unicorn?",
+      "method": "rag",
+      "answer": "The provided policies do not specify any paid days off to care for a pet unicorn.",
+      "policies": [],
+      "invalid_policy_ids": [],
+      "retrieved": [
+        {
+          "score": 0.668296,
+          "policy": {
+            "id": "P095",
+            "title": "Vacation Policy",
+            "department": "IT",
+            "policy_text": "Employees receive 15 vacation days per year. Unused days may roll over.",
+            "category": "Human Resources"
+          }
+        },
+        {
+          "score": 0.667391,
+          "policy": {
+            "id": "P075",
+            "title": "Parental Leave Policy",
+            "department": "Marketing",
+            "policy_text": "Eligible employees may take up to 12 weeks of paid parental leave.",
+            "category": "Human Resources"
+          }
+        },
+        {
+          "score": 0.657852,
+          "policy": {
+            "id": "P070",
+            "title": "Bereavement Leave Policy",
+            "department": "Legal",
+            "policy_text": "Employees may take up to 5 days of bereavement leave.",
+            "category": "Human Resources"
+          }
+        },
+        {
+          "score": 0.654818,
+          "policy": {
+            "id": "P065",
+            "title": "Sick Leave Policy",
+            "department": "Sales",
+            "policy_text": "Employees accrue sick leave monthly for personal or family illness.",
+            "category": "Human Resources"
+          }
+        },
+        {
+          "score": 0.650879,
+          "policy": {
+            "id": "P010",
+            "title": "Work From Abroad Policy",
+            "department": "Facilities",
+            "policy_text": "Employees may work abroad for up to 30 days with approval.",
+            "category": "Remote Work"
+          }
+        }
+      ],
+      "seconds": 5.0577,
+      "model": "gemini-3.5-flash-lite",
+      "embedding_model": "gemini-embedding-001",
+      "context_policy_count": 5,
+      "top_k": 5,
+      "input_tokens": 372,
+      "output_tokens": 34,
+      "thinking_tokens": 0,
+      "llm_total_tokens": 406,
+      "query_embedding_tokens": null,
+      "raw_usage": {
+        "promptTokenCount": 372,
+        "candidatesTokenCount": 34,
+        "totalTokenCount": 406,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 372
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "created_at": "2026-10-15T18:14:02.169136+00:00",
+      "database_sha256": "f8f9d2988ec082f1ea82212386535869ece8dabb8f10fe31d3959bb5b2f3e458",
+      "review": {
+        "accuracy": "correct",
+        "unsupported": "no",
+        "notes": "No policy specifies paid leave to care for a pet unicorn.",
+        "reviewer": "Codex: qualitative review against the full policy CSV on 2026-10-15"
+      },
+      "previous_review": {
+        "accuracy": "correct",
+        "unsupported": "no",
+        "notes": ""
+      },
+      "test_id": "Q02"
+    }
+  ],
+  "index_setup": {
+    "model": "gemini-embedding-001",
+    "fingerprint": "ffcbcf5439b466602f63ebc8d1348674c2bb2a52714879768ac33971283dbf2f",
+    "seconds_this_load": 45.1158,
+    "new_embeddings": 98,
+    "policy_count": 98,
+    "index_tokens": null
+  }
+}
