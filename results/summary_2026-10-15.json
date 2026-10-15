@@ -1,0 +1,35 @@
+[
+  {
+    "Method": "rules",
+    "Questions": 10,
+    "Correct": 1,
+    "Partly correct": 8,
+    "Incorrect": 1,
+    "Unsupported answers": "0/10",
+    "Mean seconds": 0.0009,
+    "Median seconds": 0.0007,
+    "Mean LLM tokens": 0
+  },
+  {
+    "Method": "full_context",
+    "Questions": 10,
+    "Correct": 10,
+    "Partly correct": 0,
+    "Incorrect": 0,
+    "Unsupported answers": "0/10",
+    "Mean seconds": 3.2355,
+    "Median seconds": 1.1949,
+    "Mean LLM tokens": 4610.9
+  },
+  {
+    "Method": "rag",
+    "Questions": 10,
+    "Correct": 10,
+    "Partly correct": 0,
+    "Incorrect": 0,
+    "Unsupported answers": "0/10",
+    "Mean seconds": 4.0458,
+    "Median seconds": 1.5529,
+    "Mean LLM tokens": 408.4
+  }
+]
