@@ -169,3 +169,44 @@ if recorded_comparison.exists() and recorded_summary.exists() and recorded_evide
 with st.expander("Policy database — source of truth"):
     st.dataframe(records, hide_index=True, use_container_width=True)
 
+
+
+with st.expander("Embedding usage diagnostic"):
+    st.caption("Runs one fresh embedding request and one token-count request using the configured embedding model. This test is separate from the recorded evaluation.")
+    if st.button("Test exact embedding token reporting", disabled=not key):
+        from datetime import datetime, timezone
+        probe_text = "How many vacation days do employees receive?"
+        probe = {"tested_at": datetime.now(timezone.utc).isoformat(), "embedding_model": embedding_model, "input": probe_text}
+        body = {"model": f"models/{embedding_model}", "content": {"parts": [{"text": probe_text}]}}
+        if embedding_model == "gemini-embedding-001":
+            body["taskType"] = "RETRIEVAL_QUERY"
+        try:
+            with st.spinner("Checking the embedding API response…"):
+                response = client.request(embedding_model, "embedContent", body)
+            probe["response_fields"] = list(response)
+            probe["embedding_fields"] = list(response.get("embedding", {}))
+            probe["vector_dimensions"] = len(response.get("embedding", {}).get("values", []))
+            probe["raw_embedding_usage"] = response.get("usageMetadata")
+            usage = response.get("usageMetadata") or {}
+            probe["api_reported_embedding_tokens"] = usage.get("promptTokenCount", usage.get("totalTokenCount"))
+        except PolicyError as exc:
+            probe["embedding_error"] = str(exc)
+        try:
+            with st.spinner("Checking whether this embedding model supports countTokens…"):
+                count_response = client.request(embedding_model, "countTokens", {"contents": [body["content"]]})
+            probe["count_tokens_response"] = count_response
+        except PolicyError as exc:
+            probe["count_tokens_error"] = str(exc)
+        st.session_state.embedding_probe = probe
+    if "embedding_probe" in st.session_state:
+        probe = st.session_state.embedding_probe
+        if probe.get("api_reported_embedding_tokens") is not None:
+            st.success(f"Exact embedding usage reported: {probe['api_reported_embedding_tokens']} tokens.")
+        elif probe.get("count_tokens_response", {}).get("totalTokens") is not None:
+            st.success(f"Exact input count returned by countTokens: {probe['count_tokens_response']['totalTokens']} tokens. This is a separate input-count measurement, not embedding-response usage metadata.")
+        elif "embedding_error" in probe:
+            st.warning("The embedding request failed. No embedding usage count was obtained.")
+        else:
+            st.info("The embedding request succeeded, but no exact token count was returned.")
+        st.json(probe)
+        st.download_button("Download embedding diagnostic", json.dumps(probe, indent=2), "embedding_diagnostic.json", "application/json")
