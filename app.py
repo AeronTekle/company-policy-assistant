@@ -97,7 +97,11 @@ if results:
             st.caption(f"Input {token(result['input_tokens'])} · Output {token(result['output_tokens'])} · Thinking {token(result['thinking_tokens'])}")
             if result["method"] == "rag":
                 if result["query_embedding_tokens"] is not None:
-                    st.caption(f"Query embedding tokens: {result['query_embedding_tokens']} (API-reported)")
+                    source = result.get("embedding_tokens_source", "api_usage_metadata")
+                    label = "exact input count via countTokens" if source == "api_count_tokens" else "API-reported usage"
+                    st.caption(f"Query embedding input tokens: {result['query_embedding_tokens']} ({label})")
+                    if source == "api_count_tokens":
+                        st.caption(f"Response time includes the token-count request ({result.get('embedding_counting_seconds', 0):.4f} seconds). Input count is separate from provider billing usage.")
                 else:
                     estimate = result.get("query_embedding_tokens_estimate", estimate_embedding_tokens(result["question"]))
                     st.caption(f"Query embedding tokens: approximately {estimate} (estimated)")
