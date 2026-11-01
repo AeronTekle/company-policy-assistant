@@ -4,6 +4,8 @@ Python assignment implementing three genuinely distinct approaches over the supp
 
 ## Status
 
+Fresh evaluation on 2026-11-01: all 98 policy embeddings rebuilt (63.1827 seconds; 4,425 exact embedding input tokens), followed by 10 questions / 30 answers with no API errors. Exact RAG query input counts averaged 16.1 tokens. Full context and RAG were each assessed as correct on 10/10 selected questions in a Codex-assisted review; rules scored 1 correct, 8 partly correct and 1 incorrect. No unsupported factual claims were identified in this sample. Mean response times were 0.9936 seconds for full context and 1.3158 seconds for RAG, including countTokens requests. Ten engine tests passed. See the latest two-paragraph [comparison](comparison.md), [reviewed evidence](results/evaluation_2026-11-01.json) and [unchanged raw export](results/raw_evaluation_2026-11-01.json). The October evaluation remains archived separately.
+
 Implemented: three methods, website, measurements, manual review, result download, resumable embedding setup, benchmark runner and Slack bot code.
 
 Verified on 2026-10-15: real Gemini responses for all three methods on the deployed website, ten questions with 30 reviewed answers, and a user-supplied Slack screenshot showing full-context generation with P095 in #aeron-policy-test. The student confirmed the lecturer invitation was sent. The public website was also opened in a separate browser session. Eight engine unit tests passed.
