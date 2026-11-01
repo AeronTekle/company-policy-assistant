@@ -79,6 +79,24 @@ class EngineTests(unittest.TestCase):
                 _, count = client.embed('Example?')
                 self.assertEqual(count, expected)
 
+    def test_embedding_exact_input_count_fallback_and_failure(self):
+        client = Gemini('test-key')
+        embedding = {'embedding': {'values': [1, 0]}}
+        with patch.object(client, 'request', side_effect=[embedding, {'totalTokens': 8}]) as request:
+            vector, count = client.embed('How many vacation days do employees receive?')
+            self.assertEqual(count, 8)
+            self.assertEqual(client.last_embedding_count_source, 'api_count_tokens')
+            self.assertEqual(request.call_args.args[1], 'countTokens')
+        with patch.object(client, 'request', side_effect=[embedding, PolicyError('Counting unavailable')]):
+            vector, count = client.embed('Example?')
+            self.assertEqual(vector, [1, 0])
+            self.assertIsNone(count)
+            self.assertEqual(client.last_embedding_count_source, 'not_reported')
+        with patch.object(client, 'request', return_value={**embedding, 'usageMetadata': {'promptTokenCount': 7}}) as request:
+            _, count = client.embed('Example?')
+            self.assertEqual(count, 7)
+            self.assertEqual(request.call_count, 1)
+
     def test_api_response_parsing_preserves_usage(self):
         client = Gemini('test-key')
         fake = {'candidates': [{'finishReason': 'STOP', 'content': {'parts': [{'text': '{"answer":"15 days","policy_ids":["P095"]}'}]}}], 'usageMetadata': {'totalTokenCount': 20}}
