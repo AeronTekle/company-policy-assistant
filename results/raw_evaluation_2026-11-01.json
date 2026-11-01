@@ -1,0 +1,2085 @@
+{
+  "results": [
+    {
+      "question": "How many vacation days do employees receive?",
+      "method": "rules",
+      "answer": "Vacation Policy: Employees receive 15 vacation days per year. Unused days may roll over.\n\nHoliday Schedule Policy: Company holidays are published annually and observed accordingly.\n\nPerformance Review Policy: Employees receive formal performance reviews annually.",
+      "policies": [
+        {
+          "id": "P095",
+          "title": "Vacation Policy",
+          "department": "IT",
+          "policy_text": "Employees receive 15 vacation days per year. Unused days may roll over.",
+          "category": "Human Resources"
+        },
+        {
+          "id": "P016",
+          "title": "Holiday Schedule Policy",
+          "department": "Facilities",
+          "policy_text": "Company holidays are published annually and observed accordingly.",
+          "category": "Human Resources"
+        },
+        {
+          "id": "P001",
+          "title": "Performance Review Policy",
+          "department": "Sales",
+          "policy_text": "Employees receive formal performance reviews annually.",
+          "category": "Human Resources"
+        }
+      ],
+      "invalid_policy_ids": [],
+      "retrieved": [],
+      "seconds": 0.0013,
+      "model": null,
+      "embedding_model": null,
+      "context_policy_count": 3,
+      "top_k": null,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "thinking_tokens": 0,
+      "llm_total_tokens": 0,
+      "query_embedding_tokens": 0,
+      "embedding_counting_seconds": 0,
+      "query_embedding_tokens_estimate": 0,
+      "embedding_tokens_source": "not_used",
+      "embedding_estimate_method": null,
+      "raw_usage": {},
+      "created_at": "2026-11-01T20:27:34.748304+00:00",
+      "database_sha256": "f8f9d2988ec082f1ea82212386535869ece8dabb8f10fe31d3959bb5b2f3e458",
+      "review": {
+        "accuracy": "unreviewed",
+        "unsupported": "unreviewed",
+        "notes": ""
+      }
+    },
+    {
+      "question": "How many vacation days do employees receive?",
+      "method": "full_context",
+      "answer": "Employees receive 15 vacation days per year, and unused days may roll over.",
+      "policies": [
+        {
+          "id": "P095",
+          "title": "Vacation Policy",
+          "department": "IT",
+          "policy_text": "Employees receive 15 vacation days per year. Unused days may roll over.",
+          "category": "Human Resources"
+        }
+      ],
+      "invalid_policy_ids": [],
+      "retrieved": [],
+      "seconds": 1.0242,
+      "model": "gemini-3.5-flash-lite",
+      "embedding_model": null,
+      "context_policy_count": 98,
+      "top_k": null,
+      "input_tokens": 4558,
+      "output_tokens": 45,
+      "thinking_tokens": 0,
+      "llm_total_tokens": 4603,
+      "query_embedding_tokens": 0,
+      "embedding_counting_seconds": 0,
+      "query_embedding_tokens_estimate": 0,
+      "embedding_tokens_source": "not_used",
+      "embedding_estimate_method": null,
+      "raw_usage": {
+        "promptTokenCount": 4558,
+        "candidatesTokenCount": 45,
+        "totalTokenCount": 4603,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 4558
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "created_at": "2026-11-01T20:27:35.774160+00:00",
+      "database_sha256": "f8f9d2988ec082f1ea82212386535869ece8dabb8f10fe31d3959bb5b2f3e458",
+      "review": {
+        "accuracy": "unreviewed",
+        "unsupported": "unreviewed",
+        "notes": ""
+      }
+    },
+    {
+      "question": "How many vacation days do employees receive?",
+      "method": "rag",
+      "answer": "Employees receive 15 vacation days per year.",
+      "policies": [
+        {
+          "id": "P095",
+          "title": "Vacation Policy",
+          "department": "IT",
+          "policy_text": "Employees receive 15 vacation days per year. Unused days may roll over.",
+          "category": "Human Resources"
+        }
+      ],
+      "invalid_policy_ids": [],
+      "retrieved": [
+        {
+          "score": 0.693635,
+          "policy": {
+            "id": "P095",
+            "title": "Vacation Policy",
+            "department": "IT",
+            "policy_text": "Employees receive 15 vacation days per year. Unused days may roll over.",
+            "category": "Human Resources"
+          }
+        },
+        {
+          "score": 0.648854,
+          "policy": {
+            "id": "P016",
+            "title": "Holiday Schedule Policy",
+            "department": "Facilities",
+            "policy_text": "Company holidays are published annually and observed accordingly.",
+            "category": "Human Resources"
+          }
+        },
+        {
+          "score": 0.641686,
+          "policy": {
+            "id": "P075",
+            "title": "Parental Leave Policy",
+            "department": "Marketing",
+            "policy_text": "Eligible employees may take up to 12 weeks of paid parental leave.",
+            "category": "Human Resources"
+          }
+        },
+        {
+          "score": 0.641141,
+          "policy": {
+            "id": "P070",
+            "title": "Bereavement Leave Policy",
+            "department": "Legal",
+            "policy_text": "Employees may take up to 5 days of bereavement leave.",
+            "category": "Human Resources"
+          }
+        },
+        {
+          "score": 0.633635,
+          "policy": {
+            "id": "P065",
+            "title": "Sick Leave Policy",
+            "department": "Sales",
+            "policy_text": "Employees accrue sick leave monthly for personal or family illness.",
+            "category": "Human Resources"
+          }
+        }
+      ],
+      "seconds": 1.1098,
+      "model": "gemini-3.5-flash-lite",
+      "embedding_model": "gemini-embedding-001",
+      "context_policy_count": 5,
+      "top_k": 5,
+      "input_tokens": 359,
+      "output_tokens": 38,
+      "thinking_tokens": 0,
+      "llm_total_tokens": 397,
+      "query_embedding_tokens": 8,
+      "embedding_counting_seconds": 0.2477,
+      "query_embedding_tokens_estimate": 11,
+      "embedding_tokens_source": "api_count_tokens",
+      "embedding_estimate_method": "ceil(characters / 4) per input; rough text heuristic, not model tokenization or billing usage",
+      "raw_usage": {
+        "promptTokenCount": 359,
+        "candidatesTokenCount": 38,
+        "totalTokenCount": 397,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 359
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "created_at": "2026-11-01T20:27:36.885160+00:00",
+      "database_sha256": "f8f9d2988ec082f1ea82212386535869ece8dabb8f10fe31d3959bb5b2f3e458",
+      "review": {
+        "accuracy": "unreviewed",
+        "unsupported": "unreviewed",
+        "notes": ""
+      }
+    },
+    {
+      "question": "How many paid days off do employees get to care for a pet unicorn?",
+      "method": "rules",
+      "answer": "Work From Abroad Policy: Employees may work abroad for up to 30 days with approval.\n\nRemote Work Policy: Employees may work remotely up to three days per week with manager approval.\n\nBereavement Leave Policy: Employees may take up to 5 days of bereavement leave.",
+      "policies": [
+        {
+          "id": "P010",
+          "title": "Work From Abroad Policy",
+          "department": "Facilities",
+          "policy_text": "Employees may work abroad for up to 30 days with approval.",
+          "category": "Remote Work"
+        },
+        {
+          "id": "P024",
+          "title": "Remote Work Policy",
+          "department": "Facilities",
+          "policy_text": "Employees may work remotely up to three days per week with manager approval.",
+          "category": "Remote Work"
+        },
+        {
+          "id": "P070",
+          "title": "Bereavement Leave Policy",
+          "department": "Legal",
+          "policy_text": "Employees may take up to 5 days of bereavement leave.",
+          "category": "Human Resources"
+        }
+      ],
+      "invalid_policy_ids": [],
+      "retrieved": [],
+      "seconds": 0.0011,
+      "model": null,
+      "embedding_model": null,
+      "context_policy_count": 3,
+      "top_k": null,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "thinking_tokens": 0,
+      "llm_total_tokens": 0,
+      "query_embedding_tokens": 0,
+      "embedding_counting_seconds": 0,
+      "query_embedding_tokens_estimate": 0,
+      "embedding_tokens_source": "not_used",
+      "embedding_estimate_method": null,
+      "raw_usage": {},
+      "created_at": "2026-11-01T20:28:05.761150+00:00",
+      "database_sha256": "f8f9d2988ec082f1ea82212386535869ece8dabb8f10fe31d3959bb5b2f3e458",
+      "review": {
+        "accuracy": "unreviewed",
+        "unsupported": "unreviewed",
+        "notes": ""
+      }
+    },
+    {
+      "question": "How many paid days off do employees get to care for a pet unicorn?",
+      "method": "full_context",
+      "answer": "The provided policy records do not specify any information regarding paid days off to care for a pet unicorn.",
+      "policies": [],
+      "invalid_policy_ids": [],
+      "retrieved": [],
+      "seconds": 0.6985,
+      "model": "gemini-3.5-flash-lite",
+      "embedding_model": null,
+      "context_policy_count": 98,
+      "top_k": null,
+      "input_tokens": 4565,
+      "output_tokens": 37,
+      "thinking_tokens": 0,
+      "llm_total_tokens": 4602,
+      "query_embedding_tokens": 0,
+      "embedding_counting_seconds": 0,
+      "query_embedding_tokens_estimate": 0,
+      "embedding_tokens_source": "not_used",
+      "embedding_estimate_method": null,
+      "raw_usage": {
+        "promptTokenCount": 4565,
+        "candidatesTokenCount": 37,
+        "totalTokenCount": 4602,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 4565
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "created_at": "2026-11-01T20:28:06.461946+00:00",
+      "database_sha256": "f8f9d2988ec082f1ea82212386535869ece8dabb8f10fe31d3959bb5b2f3e458",
+      "review": {
+        "accuracy": "unreviewed",
+        "unsupported": "unreviewed",
+        "notes": ""
+      }
+    },
+    {
+      "question": "How many paid days off do employees get to care for a pet unicorn?",
+      "method": "rag",
+      "answer": "The provided policy records do not specify how many paid days off employees get to care for a pet unicorn.",
+      "policies": [],
+      "invalid_policy_ids": [],
+      "retrieved": [
+        {
+          "score": 0.668296,
+          "policy": {
+            "id": "P095",
+            "title": "Vacation Policy",
+            "department": "IT",
+            "policy_text": "Employees receive 15 vacation days per year. Unused days may roll over.",
+            "category": "Human Resources"
+          }
+        },
+        {
+          "score": 0.667391,
+          "policy": {
+            "id": "P075",
+            "title": "Parental Leave Policy",
+            "department": "Marketing",
+            "policy_text": "Eligible employees may take up to 12 weeks of paid parental leave.",
+            "category": "Human Resources"
+          }
+        },
+        {
+          "score": 0.657852,
+          "policy": {
+            "id": "P070",
+            "title": "Bereavement Leave Policy",
+            "department": "Legal",
+            "policy_text": "Employees may take up to 5 days of bereavement leave.",
+            "category": "Human Resources"
+          }
+        },
+        {
+          "score": 0.654818,
+          "policy": {
+            "id": "P065",
+            "title": "Sick Leave Policy",
+            "department": "Sales",
+            "policy_text": "Employees accrue sick leave monthly for personal or family illness.",
+            "category": "Human Resources"
+          }
+        },
+        {
+          "score": 0.650879,
+          "policy": {
+            "id": "P010",
+            "title": "Work From Abroad Policy",
+            "department": "Facilities",
+            "policy_text": "Employees may work abroad for up to 30 days with approval.",
+            "category": "Remote Work"
+          }
+        }
+      ],
+      "seconds": 1.3562,
+      "model": "gemini-3.5-flash-lite",
+      "embedding_model": "gemini-embedding-001",
+      "context_policy_count": 5,
+      "top_k": 5,
+      "input_tokens": 372,
+      "output_tokens": 38,
+      "thinking_tokens": 0,
+      "llm_total_tokens": 410,
+      "query_embedding_tokens": 15,
+      "embedding_counting_seconds": 0.2906,
+      "query_embedding_tokens_estimate": 17,
+      "embedding_tokens_source": "api_count_tokens",
+      "embedding_estimate_method": "ceil(characters / 4) per input; rough text heuristic, not model tokenization or billing usage",
+      "raw_usage": {
+        "promptTokenCount": 372,
+        "candidatesTokenCount": 38,
+        "totalTokenCount": 410,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 372
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "created_at": "2026-11-01T20:28:07.819634+00:00",
+      "database_sha256": "f8f9d2988ec082f1ea82212386535869ece8dabb8f10fe31d3959bb5b2f3e458",
+      "review": {
+        "accuracy": "unreviewed",
+        "unsupported": "unreviewed",
+        "notes": ""
+      }
+    },
+    {
+      "question": "How many days per week can employees work remotely, and whose approval is needed?",
+      "method": "rules",
+      "answer": "Remote Work Policy: Employees may work remotely up to three days per week with manager approval.\n\nWork From Abroad Policy: Employees may work abroad for up to 30 days with approval.\n\nWork Anniversary Recognition Policy: Employees are recognized on their work anniversaries.",
+      "policies": [
+        {
+          "id": "P024",
+          "title": "Remote Work Policy",
+          "department": "Facilities",
+          "policy_text": "Employees may work remotely up to three days per week with manager approval.",
+          "category": "Remote Work"
+        },
+        {
+          "id": "P010",
+          "title": "Work From Abroad Policy",
+          "department": "Facilities",
+          "policy_text": "Employees may work abroad for up to 30 days with approval.",
+          "category": "Remote Work"
+        },
+        {
+          "id": "P034",
+          "title": "Work Anniversary Recognition Policy",
+          "department": "Marketing",
+          "policy_text": "Employees are recognized on their work anniversaries.",
+          "category": "Human Resources"
+        }
+      ],
+      "invalid_policy_ids": [],
+      "retrieved": [],
+      "seconds": 0.0012,
+      "model": null,
+      "embedding_model": null,
+      "context_policy_count": 3,
+      "top_k": null,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "thinking_tokens": 0,
+      "llm_total_tokens": 0,
+      "query_embedding_tokens": 0,
+      "embedding_counting_seconds": 0,
+      "query_embedding_tokens_estimate": 0,
+      "embedding_tokens_source": "not_used",
+      "embedding_estimate_method": null,
+      "raw_usage": {},
+      "created_at": "2026-11-01T20:28:24.496395+00:00",
+      "database_sha256": "f8f9d2988ec082f1ea82212386535869ece8dabb8f10fe31d3959bb5b2f3e458",
+      "review": {
+        "accuracy": "unreviewed",
+        "unsupported": "unreviewed",
+        "notes": ""
+      }
+    },
+    {
+      "question": "How many days per week can employees work remotely, and whose approval is needed?",
+      "method": "full_context",
+      "answer": "Employees may work remotely up to three days per week with manager approval.",
+      "policies": [
+        {
+          "id": "P024",
+          "title": "Remote Work Policy",
+          "department": "Facilities",
+          "policy_text": "Employees may work remotely up to three days per week with manager approval.",
+          "category": "Remote Work"
+        }
+      ],
+      "invalid_policy_ids": [],
+      "retrieved": [],
+      "seconds": 1.4222,
+      "model": "gemini-3.5-flash-lite",
+      "embedding_model": null,
+      "context_policy_count": 98,
+      "top_k": null,
+      "input_tokens": 4566,
+      "output_tokens": 42,
+      "thinking_tokens": 0,
+      "llm_total_tokens": 4608,
+      "query_embedding_tokens": 0,
+      "embedding_counting_seconds": 0,
+      "query_embedding_tokens_estimate": 0,
+      "embedding_tokens_source": "not_used",
+      "embedding_estimate_method": null,
+      "raw_usage": {
+        "promptTokenCount": 4566,
+        "candidatesTokenCount": 42,
+        "totalTokenCount": 4608,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 4566
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "created_at": "2026-11-01T20:28:25.920259+00:00",
+      "database_sha256": "f8f9d2988ec082f1ea82212386535869ece8dabb8f10fe31d3959bb5b2f3e458",
+      "review": {
+        "accuracy": "unreviewed",
+        "unsupported": "unreviewed",
+        "notes": ""
+      }
+    },
+    {
+      "question": "How many days per week can employees work remotely, and whose approval is needed?",
+      "method": "rag",
+      "answer": "Employees may work remotely up to three days per week with manager approval.",
+      "policies": [
+        {
+          "id": "P024",
+          "title": "Remote Work Policy",
+          "department": "Facilities",
+          "policy_text": "Employees may work remotely up to three days per week with manager approval.",
+          "category": "Remote Work"
+        }
+      ],
+      "invalid_policy_ids": [],
+      "retrieved": [
+        {
+          "score": 0.688336,
+          "policy": {
+            "id": "P024",
+            "title": "Remote Work Policy",
+            "department": "Facilities",
+            "policy_text": "Employees may work remotely up to three days per week with manager approval.",
+            "category": "Remote Work"
+          }
+        },
+        {
+          "score": 0.649777,
+          "policy": {
+            "id": "P064",
+            "title": "Flexible Hours Policy",
+            "department": "HR",
+            "policy_text": "Employees may adjust work hours with manager approval.",
+            "category": "Remote Work"
+          }
+        },
+        {
+          "score": 0.633777,
+          "policy": {
+            "id": "P010",
+            "title": "Work From Abroad Policy",
+            "department": "Facilities",
+            "policy_text": "Employees may work abroad for up to 30 days with approval.",
+            "category": "Remote Work"
+          }
+        },
+        {
+          "score": 0.626861,
+          "policy": {
+            "id": "P057",
+            "title": "Remote Meeting Policy",
+            "department": "Operations",
+            "policy_text": "Remote meetings should use approved video conferencing tools.",
+            "category": "Remote Work"
+          }
+        },
+        {
+          "score": 0.626745,
+          "policy": {
+            "id": "P067",
+            "title": "Home Office Equipment Policy",
+            "department": "Legal",
+            "policy_text": "Employees may request ergonomic equipment for remote work.",
+            "category": "Remote Work"
+          }
+        }
+      ],
+      "seconds": 1.4811,
+      "model": "gemini-3.5-flash-lite",
+      "embedding_model": "gemini-embedding-001",
+      "context_policy_count": 5,
+      "top_k": 5,
+      "input_tokens": 357,
+      "output_tokens": 42,
+      "thinking_tokens": 0,
+      "llm_total_tokens": 399,
+      "query_embedding_tokens": 16,
+      "embedding_counting_seconds": 0.0784,
+      "query_embedding_tokens_estimate": 21,
+      "embedding_tokens_source": "api_count_tokens",
+      "embedding_estimate_method": "ceil(characters / 4) per input; rough text heuristic, not model tokenization or billing usage",
+      "raw_usage": {
+        "promptTokenCount": 357,
+        "candidatesTokenCount": 42,
+        "totalTokenCount": 399,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 357
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "created_at": "2026-11-01T20:28:27.402581+00:00",
+      "database_sha256": "f8f9d2988ec082f1ea82212386535869ece8dabb8f10fe31d3959bb5b2f3e458",
+      "review": {
+        "accuracy": "unreviewed",
+        "unsupported": "unreviewed",
+        "notes": ""
+      }
+    },
+    {
+      "question": "What is the expense threshold for prior approval, and which department must approve it?",
+      "method": "rules",
+      "answer": "Expense Approval Policy: All expenses over $500 require prior approval from Finance.\n\nMarketing Approval Policy: Marketing materials must be approved before release.\n\nConference Attendance Policy: Employees may attend conferences with prior approval.",
+      "policies": [
+        {
+          "id": "P059",
+          "title": "Expense Approval Policy",
+          "department": "Legal",
+          "policy_text": "All expenses over $500 require prior approval from Finance.",
+          "category": "Finance & Expense"
+        },
+        {
+          "id": "P023",
+          "title": "Marketing Approval Policy",
+          "department": "Operations",
+          "policy_text": "Marketing materials must be approved before release.",
+          "category": "Operations"
+        },
+        {
+          "id": "P083",
+          "title": "Conference Attendance Policy",
+          "department": "Operations",
+          "policy_text": "Employees may attend conferences with prior approval.",
+          "category": "Finance & Expense"
+        }
+      ],
+      "invalid_policy_ids": [],
+      "retrieved": [],
+      "seconds": 0.001,
+      "model": null,
+      "embedding_model": null,
+      "context_policy_count": 3,
+      "top_k": null,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "thinking_tokens": 0,
+      "llm_total_tokens": 0,
+      "query_embedding_tokens": 0,
+      "embedding_counting_seconds": 0,
+      "query_embedding_tokens_estimate": 0,
+      "embedding_tokens_source": "not_used",
+      "embedding_estimate_method": null,
+      "raw_usage": {},
+      "created_at": "2026-11-01T20:28:36.513307+00:00",
+      "database_sha256": "f8f9d2988ec082f1ea82212386535869ece8dabb8f10fe31d3959bb5b2f3e458",
+      "review": {
+        "accuracy": "unreviewed",
+        "unsupported": "unreviewed",
+        "notes": ""
+      }
+    },
+    {
+      "question": "What is the expense threshold for prior approval, and which department must approve it?",
+      "method": "full_context",
+      "answer": "All expenses over $500 require prior approval from Finance.",
+      "policies": [
+        {
+          "id": "P059",
+          "title": "Expense Approval Policy",
+          "department": "Legal",
+          "policy_text": "All expenses over $500 require prior approval from Finance.",
+          "category": "Finance & Expense"
+        }
+      ],
+      "invalid_policy_ids": [],
+      "retrieved": [],
+      "seconds": 0.9363,
+      "model": "gemini-3.5-flash-lite",
+      "embedding_model": null,
+      "context_policy_count": 98,
+      "top_k": null,
+      "input_tokens": 4566,
+      "output_tokens": 41,
+      "thinking_tokens": 0,
+      "llm_total_tokens": 4607,
+      "query_embedding_tokens": 0,
+      "embedding_counting_seconds": 0,
+      "query_embedding_tokens_estimate": 0,
+      "embedding_tokens_source": "not_used",
+      "embedding_estimate_method": null,
+      "raw_usage": {
+        "promptTokenCount": 4566,
+        "candidatesTokenCount": 41,
+        "totalTokenCount": 4607,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 4566
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "created_at": "2026-11-01T20:28:37.450972+00:00",
+      "database_sha256": "f8f9d2988ec082f1ea82212386535869ece8dabb8f10fe31d3959bb5b2f3e458",
+      "review": {
+        "accuracy": "unreviewed",
+        "unsupported": "unreviewed",
+        "notes": ""
+      }
+    },
+    {
+      "question": "What is the expense threshold for prior approval, and which department must approve it?",
+      "method": "rag",
+      "answer": "Expenses over $500 require prior approval from Finance.",
+      "policies": [
+        {
+          "id": "P059",
+          "title": "Expense Approval Policy",
+          "department": "Legal",
+          "policy_text": "All expenses over $500 require prior approval from Finance.",
+          "category": "Finance & Expense"
+        }
+      ],
+      "invalid_policy_ids": [],
+      "retrieved": [
+        {
+          "score": 0.710862,
+          "policy": {
+            "id": "P059",
+            "title": "Expense Approval Policy",
+            "department": "Legal",
+            "policy_text": "All expenses over $500 require prior approval from Finance.",
+            "category": "Finance & Expense"
+          }
+        },
+        {
+          "score": 0.65882,
+          "policy": {
+            "id": "P069",
+            "title": "Procurement Policy",
+            "department": "Marketing",
+            "policy_text": "All purchases must follow the procurement process.",
+            "category": "Finance & Expense"
+          }
+        },
+        {
+          "score": 0.64213,
+          "policy": {
+            "id": "P083",
+            "title": "Conference Attendance Policy",
+            "department": "Operations",
+            "policy_text": "Employees may attend conferences with prior approval.",
+            "category": "Finance & Expense"
+          }
+        },
+        {
+          "score": 0.640766,
+          "policy": {
+            "id": "P094",
+            "title": "Press Release Policy",
+            "department": "Legal",
+            "policy_text": "Press releases must be approved by Marketing and Legal.",
+            "category": "Compliance"
+          }
+        },
+        {
+          "score": 0.636951,
+          "policy": {
+            "id": "P063",
+            "title": "Corporate Card Policy",
+            "department": "Operations",
+            "policy_text": "Corporate card usage must comply with expense guidelines.",
+            "category": "Finance & Expense"
+          }
+        }
+      ],
+      "seconds": 1.5697,
+      "model": "gemini-3.5-flash-lite",
+      "embedding_model": "gemini-embedding-001",
+      "context_policy_count": 5,
+      "top_k": 5,
+      "input_tokens": 351,
+      "output_tokens": 40,
+      "thinking_tokens": 0,
+      "llm_total_tokens": 391,
+      "query_embedding_tokens": 16,
+      "embedding_counting_seconds": 0.2604,
+      "query_embedding_tokens_estimate": 22,
+      "embedding_tokens_source": "api_count_tokens",
+      "embedding_estimate_method": "ceil(characters / 4) per input; rough text heuristic, not model tokenization or billing usage",
+      "raw_usage": {
+        "promptTokenCount": 351,
+        "candidatesTokenCount": 40,
+        "totalTokenCount": 391,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 351
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "created_at": "2026-11-01T20:28:39.021907+00:00",
+      "database_sha256": "f8f9d2988ec082f1ea82212386535869ece8dabb8f10fe31d3959bb5b2f3e458",
+      "review": {
+        "accuracy": "unreviewed",
+        "unsupported": "unreviewed",
+        "notes": ""
+      }
+    },
+    {
+      "question": "How often must passwords be changed, and what other requirement applies?",
+      "method": "rules",
+      "answer": "Password Policy: Passwords must be changed every 90 days and meet complexity requirements.\n\nAccount Management Policy: Accounts must be reviewed quarterly.\n\nSoftware Installation Policy: Only approved software may be installed on company devices.",
+      "policies": [
+        {
+          "id": "P092",
+          "title": "Password Policy",
+          "department": "HR",
+          "policy_text": "Passwords must be changed every 90 days and meet complexity requirements.",
+          "category": "IT & Security"
+        },
+        {
+          "id": "P004",
+          "title": "Account Management Policy",
+          "department": "Sales",
+          "policy_text": "Accounts must be reviewed quarterly.",
+          "category": "Customer Service"
+        },
+        {
+          "id": "P007",
+          "title": "Software Installation Policy",
+          "department": "Sales",
+          "policy_text": "Only approved software may be installed on company devices.",
+          "category": "IT & Security"
+        }
+      ],
+      "invalid_policy_ids": [],
+      "retrieved": [],
+      "seconds": 0.0012,
+      "model": null,
+      "embedding_model": null,
+      "context_policy_count": 3,
+      "top_k": null,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "thinking_tokens": 0,
+      "llm_total_tokens": 0,
+      "query_embedding_tokens": 0,
+      "embedding_counting_seconds": 0,
+      "query_embedding_tokens_estimate": 0,
+      "embedding_tokens_source": "not_used",
+      "embedding_estimate_method": null,
+      "raw_usage": {},
+      "created_at": "2026-11-01T20:28:50.632004+00:00",
+      "database_sha256": "f8f9d2988ec082f1ea82212386535869ece8dabb8f10fe31d3959bb5b2f3e458",
+      "review": {
+        "accuracy": "unreviewed",
+        "unsupported": "unreviewed",
+        "notes": ""
+      }
+    },
+    {
+      "question": "How often must passwords be changed, and what other requirement applies?",
+      "method": "full_context",
+      "answer": "Passwords must be changed every 90 days and must meet complexity requirements.",
+      "policies": [
+        {
+          "id": "P092",
+          "title": "Password Policy",
+          "department": "HR",
+          "policy_text": "Passwords must be changed every 90 days and meet complexity requirements.",
+          "category": "IT & Security"
+        }
+      ],
+      "invalid_policy_ids": [],
+      "retrieved": [],
+      "seconds": 0.993,
+      "model": "gemini-3.5-flash-lite",
+      "embedding_model": null,
+      "context_policy_count": 98,
+      "top_k": null,
+      "input_tokens": 4563,
+      "output_tokens": 43,
+      "thinking_tokens": 0,
+      "llm_total_tokens": 4606,
+      "query_embedding_tokens": 0,
+      "embedding_counting_seconds": 0,
+      "query_embedding_tokens_estimate": 0,
+      "embedding_tokens_source": "not_used",
+      "embedding_estimate_method": null,
+      "raw_usage": {
+        "promptTokenCount": 4563,
+        "candidatesTokenCount": 43,
+        "totalTokenCount": 4606,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 4563
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "created_at": "2026-11-01T20:28:51.625841+00:00",
+      "database_sha256": "f8f9d2988ec082f1ea82212386535869ece8dabb8f10fe31d3959bb5b2f3e458",
+      "review": {
+        "accuracy": "unreviewed",
+        "unsupported": "unreviewed",
+        "notes": ""
+      }
+    },
+    {
+      "question": "How often must passwords be changed, and what other requirement applies?",
+      "method": "rag",
+      "answer": "Passwords must be changed every 90 days and meet complexity requirements.",
+      "policies": [
+        {
+          "id": "P092",
+          "title": "Password Policy",
+          "department": "HR",
+          "policy_text": "Passwords must be changed every 90 days and meet complexity requirements.",
+          "category": "IT & Security"
+        }
+      ],
+      "invalid_policy_ids": [],
+      "retrieved": [
+        {
+          "score": 0.68291,
+          "policy": {
+            "id": "P092",
+            "title": "Password Policy",
+            "department": "HR",
+            "policy_text": "Passwords must be changed every 90 days and meet complexity requirements.",
+            "category": "IT & Security"
+          }
+        },
+        {
+          "score": 0.598872,
+          "policy": {
+            "id": "P062",
+            "title": "Cybersecurity Awareness Policy",
+            "department": "Marketing",
+            "policy_text": "Employees must complete annual cybersecurity training.",
+            "category": "IT & Security"
+          }
+        },
+        {
+          "score": 0.591469,
+          "policy": {
+            "id": "P051",
+            "title": "Office Access Policy",
+            "department": "HR",
+            "policy_text": "Access badges must be worn and not shared.",
+            "category": "IT & Security"
+          }
+        },
+        {
+          "score": 0.590364,
+          "policy": {
+            "id": "P053",
+            "title": "Email Signature Policy",
+            "department": "HR",
+            "policy_text": "All employees must use the approved email signature format.",
+            "category": "Operations"
+          }
+        },
+        {
+          "score": 0.589121,
+          "policy": {
+            "id": "P091",
+            "title": "IT Asset Management Policy",
+            "department": "Facilities",
+            "policy_text": "All IT assets must be tracked and returned upon exit.",
+            "category": "IT & Security"
+          }
+        }
+      ],
+      "seconds": 1.4822,
+      "model": "gemini-3.5-flash-lite",
+      "embedding_model": "gemini-embedding-001",
+      "context_policy_count": 5,
+      "top_k": 5,
+      "input_tokens": 352,
+      "output_tokens": 42,
+      "thinking_tokens": 0,
+      "llm_total_tokens": 394,
+      "query_embedding_tokens": 13,
+      "embedding_counting_seconds": 0.089,
+      "query_embedding_tokens_estimate": 18,
+      "embedding_tokens_source": "api_count_tokens",
+      "embedding_estimate_method": "ceil(characters / 4) per input; rough text heuristic, not model tokenization or billing usage",
+      "raw_usage": {
+        "promptTokenCount": 352,
+        "candidatesTokenCount": 42,
+        "totalTokenCount": 394,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 352
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "created_at": "2026-11-01T20:28:53.109625+00:00",
+      "database_sha256": "f8f9d2988ec082f1ea82212386535869ece8dabb8f10fe31d3959bb5b2f3e458",
+      "review": {
+        "accuracy": "unreviewed",
+        "unsupported": "unreviewed",
+        "notes": ""
+      }
+    },
+    {
+      "question": "What must employees submit for travel expenses, and within how many days?",
+      "method": "rules",
+      "answer": "Travel Reimbursement Policy: Employees must submit receipts for travel expenses within 30 days.\n\nExpense Approval Policy: All expenses over $500 require prior approval from Finance.\n\nWork From Abroad Policy: Employees may work abroad for up to 30 days with approval.",
+      "policies": [
+        {
+          "id": "P093",
+          "title": "Travel Reimbursement Policy",
+          "department": "Facilities",
+          "policy_text": "Employees must submit receipts for travel expenses within 30 days.",
+          "category": "Finance & Expense"
+        },
+        {
+          "id": "P059",
+          "title": "Expense Approval Policy",
+          "department": "Legal",
+          "policy_text": "All expenses over $500 require prior approval from Finance.",
+          "category": "Finance & Expense"
+        },
+        {
+          "id": "P010",
+          "title": "Work From Abroad Policy",
+          "department": "Facilities",
+          "policy_text": "Employees may work abroad for up to 30 days with approval.",
+          "category": "Remote Work"
+        }
+      ],
+      "invalid_policy_ids": [],
+      "retrieved": [],
+      "seconds": 0.001,
+      "model": null,
+      "embedding_model": null,
+      "context_policy_count": 3,
+      "top_k": null,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "thinking_tokens": 0,
+      "llm_total_tokens": 0,
+      "query_embedding_tokens": 0,
+      "embedding_counting_seconds": 0,
+      "query_embedding_tokens_estimate": 0,
+      "embedding_tokens_source": "not_used",
+      "embedding_estimate_method": null,
+      "raw_usage": {},
+      "created_at": "2026-11-01T20:29:02.675798+00:00",
+      "database_sha256": "f8f9d2988ec082f1ea82212386535869ece8dabb8f10fe31d3959bb5b2f3e458",
+      "review": {
+        "accuracy": "unreviewed",
+        "unsupported": "unreviewed",
+        "notes": ""
+      }
+    },
+    {
+      "question": "What must employees submit for travel expenses, and within how many days?",
+      "method": "full_context",
+      "answer": "Employees must submit receipts for travel expenses within 30 days.",
+      "policies": [
+        {
+          "id": "P093",
+          "title": "Travel Reimbursement Policy",
+          "department": "Facilities",
+          "policy_text": "Employees must submit receipts for travel expenses within 30 days.",
+          "category": "Finance & Expense"
+        }
+      ],
+      "invalid_policy_ids": [],
+      "retrieved": [],
+      "seconds": 0.9897,
+      "model": "gemini-3.5-flash-lite",
+      "embedding_model": null,
+      "context_policy_count": 98,
+      "top_k": null,
+      "input_tokens": 4564,
+      "output_tokens": 41,
+      "thinking_tokens": 0,
+      "llm_total_tokens": 4605,
+      "query_embedding_tokens": 0,
+      "embedding_counting_seconds": 0,
+      "query_embedding_tokens_estimate": 0,
+      "embedding_tokens_source": "not_used",
+      "embedding_estimate_method": null,
+      "raw_usage": {
+        "promptTokenCount": 4564,
+        "candidatesTokenCount": 41,
+        "totalTokenCount": 4605,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 4564
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "created_at": "2026-11-01T20:29:03.666198+00:00",
+      "database_sha256": "f8f9d2988ec082f1ea82212386535869ece8dabb8f10fe31d3959bb5b2f3e458",
+      "review": {
+        "accuracy": "unreviewed",
+        "unsupported": "unreviewed",
+        "notes": ""
+      }
+    },
+    {
+      "question": "What must employees submit for travel expenses, and within how many days?",
+      "method": "rag",
+      "answer": "Employees must submit receipts for travel expenses within 30 days.",
+      "policies": [
+        {
+          "id": "P093",
+          "title": "Travel Reimbursement Policy",
+          "department": "Facilities",
+          "policy_text": "Employees must submit receipts for travel expenses within 30 days.",
+          "category": "Finance & Expense"
+        }
+      ],
+      "invalid_policy_ids": [],
+      "retrieved": [
+        {
+          "score": 0.688429,
+          "policy": {
+            "id": "P093",
+            "title": "Travel Reimbursement Policy",
+            "department": "Facilities",
+            "policy_text": "Employees must submit receipts for travel expenses within 30 days.",
+            "category": "Finance & Expense"
+          }
+        },
+        {
+          "score": 0.634361,
+          "policy": {
+            "id": "P059",
+            "title": "Expense Approval Policy",
+            "department": "Legal",
+            "policy_text": "All expenses over $500 require prior approval from Finance.",
+            "category": "Finance & Expense"
+          }
+        },
+        {
+          "score": 0.627313,
+          "policy": {
+            "id": "P029",
+            "title": "Training Reimbursement Policy",
+            "department": "Sales",
+            "policy_text": "Employees may be reimbursed for approved external training.",
+            "category": "Finance & Expense"
+          }
+        },
+        {
+          "score": 0.622256,
+          "policy": {
+            "id": "P072",
+            "title": "Petty Cash Policy",
+            "department": "Legal",
+            "policy_text": "Petty cash usage must be documented and reconciled monthly.",
+            "category": "Finance & Expense"
+          }
+        },
+        {
+          "score": 0.619693,
+          "policy": {
+            "id": "P063",
+            "title": "Corporate Card Policy",
+            "department": "Operations",
+            "policy_text": "Corporate card usage must comply with expense guidelines.",
+            "category": "Finance & Expense"
+          }
+        }
+      ],
+      "seconds": 1.0656,
+      "model": "gemini-3.5-flash-lite",
+      "embedding_model": "gemini-embedding-001",
+      "context_policy_count": 5,
+      "top_k": 5,
+      "input_tokens": 361,
+      "output_tokens": 41,
+      "thinking_tokens": 0,
+      "llm_total_tokens": 402,
+      "query_embedding_tokens": 14,
+      "embedding_counting_seconds": 0.0972,
+      "query_embedding_tokens_estimate": 19,
+      "embedding_tokens_source": "api_count_tokens",
+      "embedding_estimate_method": "ceil(characters / 4) per input; rough text heuristic, not model tokenization or billing usage",
+      "raw_usage": {
+        "promptTokenCount": 361,
+        "candidatesTokenCount": 41,
+        "totalTokenCount": 402,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 361
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "created_at": "2026-11-01T20:29:04.733177+00:00",
+      "database_sha256": "f8f9d2988ec082f1ea82212386535869ece8dabb8f10fe31d3959bb5b2f3e458",
+      "review": {
+        "accuracy": "unreviewed",
+        "unsupported": "unreviewed",
+        "notes": ""
+      }
+    },
+    {
+      "question": "I would like to do my job from another country for 20 days. Is that allowed, and is approval required?",
+      "method": "rules",
+      "answer": "Work From Abroad Policy: Employees may work abroad for up to 30 days with approval.\n\nExpense Approval Policy: All expenses over $500 require prior approval from Finance.\n\nJob Posting Policy: All internal job postings are listed on the company portal.",
+      "policies": [
+        {
+          "id": "P010",
+          "title": "Work From Abroad Policy",
+          "department": "Facilities",
+          "policy_text": "Employees may work abroad for up to 30 days with approval.",
+          "category": "Remote Work"
+        },
+        {
+          "id": "P059",
+          "title": "Expense Approval Policy",
+          "department": "Legal",
+          "policy_text": "All expenses over $500 require prior approval from Finance.",
+          "category": "Finance & Expense"
+        },
+        {
+          "id": "P097",
+          "title": "Job Posting Policy",
+          "department": "Legal",
+          "policy_text": "All internal job postings are listed on the company portal.",
+          "category": "Human Resources"
+        }
+      ],
+      "invalid_policy_ids": [],
+      "retrieved": [],
+      "seconds": 0.0009,
+      "model": null,
+      "embedding_model": null,
+      "context_policy_count": 3,
+      "top_k": null,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "thinking_tokens": 0,
+      "llm_total_tokens": 0,
+      "query_embedding_tokens": 0,
+      "embedding_counting_seconds": 0,
+      "query_embedding_tokens_estimate": 0,
+      "embedding_tokens_source": "not_used",
+      "embedding_estimate_method": null,
+      "raw_usage": {},
+      "created_at": "2026-11-01T20:29:12.959568+00:00",
+      "database_sha256": "f8f9d2988ec082f1ea82212386535869ece8dabb8f10fe31d3959bb5b2f3e458",
+      "review": {
+        "accuracy": "unreviewed",
+        "unsupported": "unreviewed",
+        "notes": ""
+      }
+    },
+    {
+      "question": "I would like to do my job from another country for 20 days. Is that allowed, and is approval required?",
+      "method": "full_context",
+      "answer": "Yes, working from another country is allowed for up to 30 days, and approval is required.",
+      "policies": [
+        {
+          "id": "P010",
+          "title": "Work From Abroad Policy",
+          "department": "Facilities",
+          "policy_text": "Employees may work abroad for up to 30 days with approval.",
+          "category": "Remote Work"
+        }
+      ],
+      "invalid_policy_ids": [],
+      "retrieved": [],
+      "seconds": 1.0275,
+      "model": "gemini-3.5-flash-lite",
+      "embedding_model": null,
+      "context_policy_count": 98,
+      "top_k": null,
+      "input_tokens": 4575,
+      "output_tokens": 49,
+      "thinking_tokens": 0,
+      "llm_total_tokens": 4624,
+      "query_embedding_tokens": 0,
+      "embedding_counting_seconds": 0,
+      "query_embedding_tokens_estimate": 0,
+      "embedding_tokens_source": "not_used",
+      "embedding_estimate_method": null,
+      "raw_usage": {
+        "promptTokenCount": 4575,
+        "candidatesTokenCount": 49,
+        "totalTokenCount": 4624,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 4575
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "created_at": "2026-11-01T20:29:13.988574+00:00",
+      "database_sha256": "f8f9d2988ec082f1ea82212386535869ece8dabb8f10fe31d3959bb5b2f3e458",
+      "review": {
+        "accuracy": "unreviewed",
+        "unsupported": "unreviewed",
+        "notes": ""
+      }
+    },
+    {
+      "question": "I would like to do my job from another country for 20 days. Is that allowed, and is approval required?",
+      "method": "rag",
+      "answer": "Yes, working from abroad for 20 days is allowed, and approval is required.",
+      "policies": [
+        {
+          "id": "P010",
+          "title": "Work From Abroad Policy",
+          "department": "Facilities",
+          "policy_text": "Employees may work abroad for up to 30 days with approval.",
+          "category": "Remote Work"
+        }
+      ],
+      "invalid_policy_ids": [],
+      "retrieved": [
+        {
+          "score": 0.686236,
+          "policy": {
+            "id": "P010",
+            "title": "Work From Abroad Policy",
+            "department": "Facilities",
+            "policy_text": "Employees may work abroad for up to 30 days with approval.",
+            "category": "Remote Work"
+          }
+        },
+        {
+          "score": 0.644977,
+          "policy": {
+            "id": "P024",
+            "title": "Remote Work Policy",
+            "department": "Facilities",
+            "policy_text": "Employees may work remotely up to three days per week with manager approval.",
+            "category": "Remote Work"
+          }
+        },
+        {
+          "score": 0.635587,
+          "policy": {
+            "id": "P095",
+            "title": "Vacation Policy",
+            "department": "IT",
+            "policy_text": "Employees receive 15 vacation days per year. Unused days may roll over.",
+            "category": "Human Resources"
+          }
+        },
+        {
+          "score": 0.631927,
+          "policy": {
+            "id": "P064",
+            "title": "Flexible Hours Policy",
+            "department": "HR",
+            "policy_text": "Employees may adjust work hours with manager approval.",
+            "category": "Remote Work"
+          }
+        },
+        {
+          "score": 0.626259,
+          "policy": {
+            "id": "P067",
+            "title": "Home Office Equipment Policy",
+            "department": "Legal",
+            "policy_text": "Employees may request ergonomic equipment for remote work.",
+            "category": "Remote Work"
+          }
+        }
+      ],
+      "seconds": 1.1187,
+      "model": "gemini-3.5-flash-lite",
+      "embedding_model": "gemini-embedding-001",
+      "context_policy_count": 5,
+      "top_k": 5,
+      "input_tokens": 374,
+      "output_tokens": 46,
+      "thinking_tokens": 0,
+      "llm_total_tokens": 420,
+      "query_embedding_tokens": 25,
+      "embedding_counting_seconds": 0.0835,
+      "query_embedding_tokens_estimate": 26,
+      "embedding_tokens_source": "api_count_tokens",
+      "embedding_estimate_method": "ceil(characters / 4) per input; rough text heuristic, not model tokenization or billing usage",
+      "raw_usage": {
+        "promptTokenCount": 374,
+        "candidatesTokenCount": 46,
+        "totalTokenCount": 420,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 374
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "created_at": "2026-11-01T20:29:15.108827+00:00",
+      "database_sha256": "f8f9d2988ec082f1ea82212386535869ece8dabb8f10fe31d3959bb5b2f3e458",
+      "review": {
+        "accuracy": "unreviewed",
+        "unsupported": "unreviewed",
+        "notes": ""
+      }
+    },
+    {
+      "question": "What percentage of salary does the company contribute to an employee pension?",
+      "method": "rules",
+      "answer": "No matching policy found.",
+      "policies": [],
+      "invalid_policy_ids": [],
+      "retrieved": [],
+      "seconds": 0.0007,
+      "model": null,
+      "embedding_model": null,
+      "context_policy_count": 0,
+      "top_k": null,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "thinking_tokens": 0,
+      "llm_total_tokens": 0,
+      "query_embedding_tokens": 0,
+      "embedding_counting_seconds": 0,
+      "query_embedding_tokens_estimate": 0,
+      "embedding_tokens_source": "not_used",
+      "embedding_estimate_method": null,
+      "raw_usage": {},
+      "created_at": "2026-11-01T20:29:29.182576+00:00",
+      "database_sha256": "f8f9d2988ec082f1ea82212386535869ece8dabb8f10fe31d3959bb5b2f3e458",
+      "review": {
+        "accuracy": "unreviewed",
+        "unsupported": "unreviewed",
+        "notes": ""
+      }
+    },
+    {
+      "question": "What percentage of salary does the company contribute to an employee pension?",
+      "method": "full_context",
+      "answer": "The provided policy records do not specify what percentage of salary the company contributes to an employee pension.",
+      "policies": [],
+      "invalid_policy_ids": [],
+      "retrieved": [],
+      "seconds": 0.702,
+      "model": "gemini-3.5-flash-lite",
+      "embedding_model": null,
+      "context_policy_count": 98,
+      "top_k": null,
+      "input_tokens": 4563,
+      "output_tokens": 36,
+      "thinking_tokens": 0,
+      "llm_total_tokens": 4599,
+      "query_embedding_tokens": 0,
+      "embedding_counting_seconds": 0,
+      "query_embedding_tokens_estimate": 0,
+      "embedding_tokens_source": "not_used",
+      "embedding_estimate_method": null,
+      "raw_usage": {
+        "promptTokenCount": 4563,
+        "candidatesTokenCount": 36,
+        "totalTokenCount": 4599,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 4563
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "created_at": "2026-11-01T20:29:29.886063+00:00",
+      "database_sha256": "f8f9d2988ec082f1ea82212386535869ece8dabb8f10fe31d3959bb5b2f3e458",
+      "review": {
+        "accuracy": "unreviewed",
+        "unsupported": "unreviewed",
+        "notes": ""
+      }
+    },
+    {
+      "question": "What percentage of salary does the company contribute to an employee pension?",
+      "method": "rag",
+      "answer": "The provided policy records do not specify what percentage of salary the company contributes to an employee pension.",
+      "policies": [],
+      "invalid_policy_ids": [],
+      "retrieved": [
+        {
+          "score": 0.599141,
+          "policy": {
+            "id": "P095",
+            "title": "Vacation Policy",
+            "department": "IT",
+            "policy_text": "Employees receive 15 vacation days per year. Unused days may roll over.",
+            "category": "Human Resources"
+          }
+        },
+        {
+          "score": 0.593418,
+          "policy": {
+            "id": "P075",
+            "title": "Parental Leave Policy",
+            "department": "Marketing",
+            "policy_text": "Eligible employees may take up to 12 weeks of paid parental leave.",
+            "category": "Human Resources"
+          }
+        },
+        {
+          "score": 0.591694,
+          "policy": {
+            "id": "P065",
+            "title": "Sick Leave Policy",
+            "department": "Sales",
+            "policy_text": "Employees accrue sick leave monthly for personal or family illness.",
+            "category": "Human Resources"
+          }
+        },
+        {
+          "score": 0.588716,
+          "policy": {
+            "id": "P077",
+            "title": "Tuition Assistance Policy",
+            "department": "HR",
+            "policy_text": "Employees may apply for tuition assistance for approved programs.",
+            "category": "Finance & Expense"
+          }
+        },
+        {
+          "score": 0.586869,
+          "policy": {
+            "id": "P070",
+            "title": "Bereavement Leave Policy",
+            "department": "Legal",
+            "policy_text": "Employees may take up to 5 days of bereavement leave.",
+            "category": "Human Resources"
+          }
+        }
+      ],
+      "seconds": 1.4462,
+      "model": "gemini-3.5-flash-lite",
+      "embedding_model": "gemini-embedding-001",
+      "context_policy_count": 5,
+      "top_k": 5,
+      "input_tokens": 367,
+      "output_tokens": 36,
+      "thinking_tokens": 0,
+      "llm_total_tokens": 403,
+      "query_embedding_tokens": 13,
+      "embedding_counting_seconds": 0.2527,
+      "query_embedding_tokens_estimate": 20,
+      "embedding_tokens_source": "api_count_tokens",
+      "embedding_estimate_method": "ceil(characters / 4) per input; rough text heuristic, not model tokenization or billing usage",
+      "raw_usage": {
+        "promptTokenCount": 367,
+        "candidatesTokenCount": 36,
+        "totalTokenCount": 403,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 367
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "created_at": "2026-11-01T20:29:31.333123+00:00",
+      "database_sha256": "f8f9d2988ec082f1ea82212386535869ece8dabb8f10fe31d3959bb5b2f3e458",
+      "review": {
+        "accuracy": "unreviewed",
+        "unsupported": "unreviewed",
+        "notes": ""
+      }
+    },
+    {
+      "question": "How many weeks of paid parental leave may eligible employees take, and how many days of bereavement leave may employees take?",
+      "method": "rules",
+      "answer": "Parental Leave Policy: Eligible employees may take up to 12 weeks of paid parental leave.\n\nBereavement Leave Policy: Employees may take up to 5 days of bereavement leave.\n\nSick Leave Policy: Employees accrue sick leave monthly for personal or family illness.",
+      "policies": [
+        {
+          "id": "P075",
+          "title": "Parental Leave Policy",
+          "department": "Marketing",
+          "policy_text": "Eligible employees may take up to 12 weeks of paid parental leave.",
+          "category": "Human Resources"
+        },
+        {
+          "id": "P070",
+          "title": "Bereavement Leave Policy",
+          "department": "Legal",
+          "policy_text": "Employees may take up to 5 days of bereavement leave.",
+          "category": "Human Resources"
+        },
+        {
+          "id": "P065",
+          "title": "Sick Leave Policy",
+          "department": "Sales",
+          "policy_text": "Employees accrue sick leave monthly for personal or family illness.",
+          "category": "Human Resources"
+        }
+      ],
+      "invalid_policy_ids": [],
+      "retrieved": [],
+      "seconds": 0.0012,
+      "model": null,
+      "embedding_model": null,
+      "context_policy_count": 3,
+      "top_k": null,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "thinking_tokens": 0,
+      "llm_total_tokens": 0,
+      "query_embedding_tokens": 0,
+      "embedding_counting_seconds": 0,
+      "query_embedding_tokens_estimate": 0,
+      "embedding_tokens_source": "not_used",
+      "embedding_estimate_method": null,
+      "raw_usage": {},
+      "created_at": "2026-11-01T20:29:40.299324+00:00",
+      "database_sha256": "f8f9d2988ec082f1ea82212386535869ece8dabb8f10fe31d3959bb5b2f3e458",
+      "review": {
+        "accuracy": "unreviewed",
+        "unsupported": "unreviewed",
+        "notes": ""
+      }
+    },
+    {
+      "question": "How many weeks of paid parental leave may eligible employees take, and how many days of bereavement leave may employees take?",
+      "method": "full_context",
+      "answer": "Eligible employees may take up to 12 weeks of paid parental leave, and employees may take up to 5 days of bereavement leave.",
+      "policies": [
+        {
+          "id": "P070",
+          "title": "Bereavement Leave Policy",
+          "department": "Legal",
+          "policy_text": "Employees may take up to 5 days of bereavement leave.",
+          "category": "Human Resources"
+        },
+        {
+          "id": "P075",
+          "title": "Parental Leave Policy",
+          "department": "Marketing",
+          "policy_text": "Eligible employees may take up to 12 weeks of paid parental leave.",
+          "category": "Human Resources"
+        }
+      ],
+      "invalid_policy_ids": [],
+      "retrieved": [],
+      "seconds": 1.0796,
+      "model": "gemini-3.5-flash-lite",
+      "embedding_model": null,
+      "context_policy_count": 98,
+      "top_k": null,
+      "input_tokens": 4573,
+      "output_tokens": 65,
+      "thinking_tokens": 0,
+      "llm_total_tokens": 4638,
+      "query_embedding_tokens": 0,
+      "embedding_counting_seconds": 0,
+      "query_embedding_tokens_estimate": 0,
+      "embedding_tokens_source": "not_used",
+      "embedding_estimate_method": null,
+      "raw_usage": {
+        "promptTokenCount": 4573,
+        "candidatesTokenCount": 65,
+        "totalTokenCount": 4638,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 4573
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "created_at": "2026-11-01T20:29:41.381088+00:00",
+      "database_sha256": "f8f9d2988ec082f1ea82212386535869ece8dabb8f10fe31d3959bb5b2f3e458",
+      "review": {
+        "accuracy": "unreviewed",
+        "unsupported": "unreviewed",
+        "notes": ""
+      }
+    },
+    {
+      "question": "How many weeks of paid parental leave may eligible employees take, and how many days of bereavement leave may employees take?",
+      "method": "rag",
+      "answer": "Eligible employees may take up to 12 weeks of paid parental leave, and employees may take up to 5 days of bereavement leave.",
+      "policies": [
+        {
+          "id": "P075",
+          "title": "Parental Leave Policy",
+          "department": "Marketing",
+          "policy_text": "Eligible employees may take up to 12 weeks of paid parental leave.",
+          "category": "Human Resources"
+        },
+        {
+          "id": "P070",
+          "title": "Bereavement Leave Policy",
+          "department": "Legal",
+          "policy_text": "Employees may take up to 5 days of bereavement leave.",
+          "category": "Human Resources"
+        }
+      ],
+      "invalid_policy_ids": [],
+      "retrieved": [
+        {
+          "score": 0.680245,
+          "policy": {
+            "id": "P070",
+            "title": "Bereavement Leave Policy",
+            "department": "Legal",
+            "policy_text": "Employees may take up to 5 days of bereavement leave.",
+            "category": "Human Resources"
+          }
+        },
+        {
+          "score": 0.65641,
+          "policy": {
+            "id": "P075",
+            "title": "Parental Leave Policy",
+            "department": "Marketing",
+            "policy_text": "Eligible employees may take up to 12 weeks of paid parental leave.",
+            "category": "Human Resources"
+          }
+        },
+        {
+          "score": 0.611065,
+          "policy": {
+            "id": "P095",
+            "title": "Vacation Policy",
+            "department": "IT",
+            "policy_text": "Employees receive 15 vacation days per year. Unused days may roll over.",
+            "category": "Human Resources"
+          }
+        },
+        {
+          "score": 0.602059,
+          "policy": {
+            "id": "P065",
+            "title": "Sick Leave Policy",
+            "department": "Sales",
+            "policy_text": "Employees accrue sick leave monthly for personal or family illness.",
+            "category": "Human Resources"
+          }
+        },
+        {
+          "score": 0.592578,
+          "policy": {
+            "id": "P024",
+            "title": "Remote Work Policy",
+            "department": "Facilities",
+            "policy_text": "Employees may work remotely up to three days per week with manager approval.",
+            "category": "Remote Work"
+          }
+        }
+      ],
+      "seconds": 1.416,
+      "model": "gemini-3.5-flash-lite",
+      "embedding_model": "gemini-embedding-001",
+      "context_policy_count": 5,
+      "top_k": 5,
+      "input_tokens": 379,
+      "output_tokens": 65,
+      "thinking_tokens": 0,
+      "llm_total_tokens": 444,
+      "query_embedding_tokens": 23,
+      "embedding_counting_seconds": 0.2661,
+      "query_embedding_tokens_estimate": 32,
+      "embedding_tokens_source": "api_count_tokens",
+      "embedding_estimate_method": "ceil(characters / 4) per input; rough text heuristic, not model tokenization or billing usage",
+      "raw_usage": {
+        "promptTokenCount": 379,
+        "candidatesTokenCount": 65,
+        "totalTokenCount": 444,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 379
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "created_at": "2026-11-01T20:29:42.798118+00:00",
+      "database_sha256": "f8f9d2988ec082f1ea82212386535869ece8dabb8f10fe31d3959bb5b2f3e458",
+      "review": {
+        "accuracy": "unreviewed",
+        "unsupported": "unreviewed",
+        "notes": ""
+      }
+    },
+    {
+      "question": "Does sick leave cover family illness, and exactly how many sick days are accrued each month?",
+      "method": "rules",
+      "answer": "Sick Leave Policy: Employees accrue sick leave monthly for personal or family illness.\n\nBereavement Leave Policy: Employees may take up to 5 days of bereavement leave.\n\nParental Leave Policy: Eligible employees may take up to 12 weeks of paid parental leave.",
+      "policies": [
+        {
+          "id": "P065",
+          "title": "Sick Leave Policy",
+          "department": "Sales",
+          "policy_text": "Employees accrue sick leave monthly for personal or family illness.",
+          "category": "Human Resources"
+        },
+        {
+          "id": "P070",
+          "title": "Bereavement Leave Policy",
+          "department": "Legal",
+          "policy_text": "Employees may take up to 5 days of bereavement leave.",
+          "category": "Human Resources"
+        },
+        {
+          "id": "P075",
+          "title": "Parental Leave Policy",
+          "department": "Marketing",
+          "policy_text": "Eligible employees may take up to 12 weeks of paid parental leave.",
+          "category": "Human Resources"
+        }
+      ],
+      "invalid_policy_ids": [],
+      "retrieved": [],
+      "seconds": 0.0032,
+      "model": null,
+      "embedding_model": null,
+      "context_policy_count": 3,
+      "top_k": null,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "thinking_tokens": 0,
+      "llm_total_tokens": 0,
+      "query_embedding_tokens": 0,
+      "embedding_counting_seconds": 0,
+      "query_embedding_tokens_estimate": 0,
+      "embedding_tokens_source": "not_used",
+      "embedding_estimate_method": null,
+      "raw_usage": {},
+      "created_at": "2026-11-01T20:29:55.598445+00:00",
+      "database_sha256": "f8f9d2988ec082f1ea82212386535869ece8dabb8f10fe31d3959bb5b2f3e458",
+      "review": {
+        "accuracy": "unreviewed",
+        "unsupported": "unreviewed",
+        "notes": ""
+      }
+    },
+    {
+      "question": "Does sick leave cover family illness, and exactly how many sick days are accrued each month?",
+      "method": "full_context",
+      "answer": "Yes, sick leave covers personal or family illness. However, the exact number of sick days accrued each month is not specified.",
+      "policies": [
+        {
+          "id": "P065",
+          "title": "Sick Leave Policy",
+          "department": "Sales",
+          "policy_text": "Employees accrue sick leave monthly for personal or family illness.",
+          "category": "Human Resources"
+        }
+      ],
+      "invalid_policy_ids": [],
+      "retrieved": [],
+      "seconds": 1.0627,
+      "model": "gemini-3.5-flash-lite",
+      "embedding_model": null,
+      "context_policy_count": 98,
+      "top_k": null,
+      "input_tokens": 4568,
+      "output_tokens": 53,
+      "thinking_tokens": 0,
+      "llm_total_tokens": 4621,
+      "query_embedding_tokens": 0,
+      "embedding_counting_seconds": 0,
+      "query_embedding_tokens_estimate": 0,
+      "embedding_tokens_source": "not_used",
+      "embedding_estimate_method": null,
+      "raw_usage": {
+        "promptTokenCount": 4568,
+        "candidatesTokenCount": 53,
+        "totalTokenCount": 4621,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 4568
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "created_at": "2026-11-01T20:29:56.663857+00:00",
+      "database_sha256": "f8f9d2988ec082f1ea82212386535869ece8dabb8f10fe31d3959bb5b2f3e458",
+      "review": {
+        "accuracy": "unreviewed",
+        "unsupported": "unreviewed",
+        "notes": ""
+      }
+    },
+    {
+      "question": "Does sick leave cover family illness, and exactly how many sick days are accrued each month?",
+      "method": "rag",
+      "answer": "Yes, sick leave covers personal or family illness. However, the exact number of sick days accrued each month is not specified in the policy records.",
+      "policies": [
+        {
+          "id": "P065",
+          "title": "Sick Leave Policy",
+          "department": "Sales",
+          "policy_text": "Employees accrue sick leave monthly for personal or family illness.",
+          "category": "Human Resources"
+        }
+      ],
+      "invalid_policy_ids": [],
+      "retrieved": [
+        {
+          "score": 0.669376,
+          "policy": {
+            "id": "P065",
+            "title": "Sick Leave Policy",
+            "department": "Sales",
+            "policy_text": "Employees accrue sick leave monthly for personal or family illness.",
+            "category": "Human Resources"
+          }
+        },
+        {
+          "score": 0.610428,
+          "policy": {
+            "id": "P070",
+            "title": "Bereavement Leave Policy",
+            "department": "Legal",
+            "policy_text": "Employees may take up to 5 days of bereavement leave.",
+            "category": "Human Resources"
+          }
+        },
+        {
+          "score": 0.603541,
+          "policy": {
+            "id": "P075",
+            "title": "Parental Leave Policy",
+            "department": "Marketing",
+            "policy_text": "Eligible employees may take up to 12 weeks of paid parental leave.",
+            "category": "Human Resources"
+          }
+        },
+        {
+          "score": 0.603184,
+          "policy": {
+            "id": "P095",
+            "title": "Vacation Policy",
+            "department": "IT",
+            "policy_text": "Employees receive 15 vacation days per year. Unused days may roll over.",
+            "category": "Human Resources"
+          }
+        },
+        {
+          "score": 0.592679,
+          "policy": {
+            "id": "P016",
+            "title": "Holiday Schedule Policy",
+            "department": "Facilities",
+            "policy_text": "Company holidays are published annually and observed accordingly.",
+            "category": "Human Resources"
+          }
+        }
+      ],
+      "seconds": 1.1129,
+      "model": "gemini-3.5-flash-lite",
+      "embedding_model": "gemini-embedding-001",
+      "context_policy_count": 5,
+      "top_k": 5,
+      "input_tokens": 369,
+      "output_tokens": 57,
+      "thinking_tokens": 0,
+      "llm_total_tokens": 426,
+      "query_embedding_tokens": 18,
+      "embedding_counting_seconds": 0.2474,
+      "query_embedding_tokens_estimate": 23,
+      "embedding_tokens_source": "api_count_tokens",
+      "embedding_estimate_method": "ceil(characters / 4) per input; rough text heuristic, not model tokenization or billing usage",
+      "raw_usage": {
+        "promptTokenCount": 369,
+        "candidatesTokenCount": 57,
+        "totalTokenCount": 426,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 369
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "created_at": "2026-11-01T20:29:57.778065+00:00",
+      "database_sha256": "f8f9d2988ec082f1ea82212386535869ece8dabb8f10fe31d3959bb5b2f3e458",
+      "review": {
+        "accuracy": "unreviewed",
+        "unsupported": "unreviewed",
+        "notes": ""
+      }
+    }
+  ],
+  "index_setup": {
+    "model": "gemini-embedding-001",
+    "fingerprint": "ffcbcf5439b466602f63ebc8d1348674c2bb2a52714879768ac33971283dbf2f",
+    "seconds_this_load": 63.1827,
+    "new_embeddings": 98,
+    "policy_count": 98,
+    "index_tokens": 4425,
+    "index_tokens_estimate": 4329,
+    "embedding_estimate_method": "ceil(characters / 4) per input; rough text heuristic, not model tokenization or billing usage",
+    "index_tokens_source": "see_index_token_sources",
+    "index_token_sources": {
+      "P001": "api_count_tokens",
+      "P002": "api_count_tokens",
+      "P003": "api_count_tokens",
+      "P004": "api_count_tokens",
+      "P005": "api_count_tokens",
+      "P006": "api_count_tokens",
+      "P007": "api_count_tokens",
+      "P008": "api_count_tokens",
+      "P009": "api_count_tokens",
+      "P010": "api_count_tokens",
+      "P011": "api_count_tokens",
+      "P012": "api_count_tokens",
+      "P013": "api_count_tokens",
+      "P014": "api_count_tokens",
+      "P015": "api_count_tokens",
+      "P016": "api_count_tokens",
+      "P017": "api_count_tokens",
+      "P018": "api_count_tokens",
+      "P019": "api_count_tokens",
+      "P020": "api_count_tokens",
+      "P021": "api_count_tokens",
+      "P022": "api_count_tokens",
+      "P023": "api_count_tokens",
+      "P024": "api_count_tokens",
+      "P025": "api_count_tokens",
+      "P026": "api_count_tokens",
+      "P027": "api_count_tokens",
+      "P028": "api_count_tokens",
+      "P029": "api_count_tokens",
+      "P030": "api_count_tokens",
+      "P031": "api_count_tokens",
+      "P032": "api_count_tokens",
+      "P033": "api_count_tokens",
+      "P034": "api_count_tokens",
+      "P035": "api_count_tokens",
+      "P036": "api_count_tokens",
+      "P037": "api_count_tokens",
+      "P038": "api_count_tokens",
+      "P039": "api_count_tokens",
+      "P040": "api_count_tokens",
+      "P041": "api_count_tokens",
+      "P042": "api_count_tokens",
+      "P043": "api_count_tokens",
+      "P044": "api_count_tokens",
+      "P045": "api_count_tokens",
+      "P046": "api_count_tokens",
+      "P047": "api_count_tokens",
+      "P048": "api_count_tokens",
+      "P049": "api_count_tokens",
+      "P050": "api_count_tokens",
+      "P051": "api_count_tokens",
+      "P052": "api_count_tokens",
+      "P053": "api_count_tokens",
+      "P054": "api_count_tokens",
+      "P055": "api_count_tokens",
+      "P056": "api_count_tokens",
+      "P057": "api_count_tokens",
+      "P058": "api_count_tokens",
+      "P059": "api_count_tokens",
+      "P060": "api_count_tokens",
+      "P061": "api_count_tokens",
+      "P062": "api_count_tokens",
+      "P063": "api_count_tokens",
+      "P064": "api_count_tokens",
+      "P065": "api_count_tokens",
+      "P066": "api_count_tokens",
+      "P067": "api_count_tokens",
+      "P068": "api_count_tokens",
+      "P069": "api_count_tokens",
+      "P070": "api_count_tokens",
+      "P071": "api_count_tokens",
+      "P072": "api_count_tokens",
+      "P073": "api_count_tokens",
+      "P074": "api_count_tokens",
+      "P075": "api_count_tokens",
+      "P076": "api_count_tokens",
+      "P077": "api_count_tokens",
+      "P078": "api_count_tokens",
+      "P079": "api_count_tokens",
+      "P080": "api_count_tokens",
+      "P081": "api_count_tokens",
+      "P082": "api_count_tokens",
+      "P083": "api_count_tokens",
+      "P084": "api_count_tokens",
+      "P085": "api_count_tokens",
+      "P086": "api_count_tokens",
+      "P087": "api_count_tokens",
+      "P088": "api_count_tokens",
+      "P089": "api_count_tokens",
+      "P090": "api_count_tokens",
+      "P091": "api_count_tokens",
+      "P092": "api_count_tokens",
+      "P093": "api_count_tokens",
+      "P094": "api_count_tokens",
+      "P095": "api_count_tokens",
+      "P096": "api_count_tokens",
+      "P097": "api_count_tokens",
+      "P098": "api_count_tokens"
+    }
+  }
+}

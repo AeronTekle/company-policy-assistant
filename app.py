@@ -154,26 +154,34 @@ if valid:
 else:
     st.info("No measured results yet. Ask a question to begin.")
 
-# Persisted evidence is separate from the current browser session's measurements.
+# Persisted evidence is separate from live-session measurements.
 from pathlib import Path
 recorded_root = Path(__file__).resolve().parent
 recorded_comparison = recorded_root / "comparison.md"
-recorded_summary = recorded_root / "results" / "summary_2026-10-15.json"
-recorded_evidence = recorded_root / "results" / "evaluation_2026-10-15.json"
+recorded_summary = recorded_root / "results" / "summary_2026-11-01.json"
+recorded_evidence = recorded_root / "results" / "evaluation_2026-11-01.json"
 if recorded_comparison.exists() and recorded_summary.exists() and recorded_evidence.exists():
-    st.subheader("Recorded evaluation · 10 questions / 30 answers")
-    st.caption("Measured on 15 October 2026 across two sessions. This saved evaluation is independent of the live-session history above. Reviews assess accuracy, relevance and support against the CSV.")
-    st.markdown(recorded_comparison.read_text(encoding="utf-8"))
-    st.dataframe(json.loads(recorded_summary.read_text(encoding="utf-8")), hide_index=True, use_container_width=True)
-    st.caption("LLM token counts exclude embeddings. Index preparation: 45.1158 seconds. Embedding token usage was not reported. These selected tests do not establish a general hallucination rate.")
-    saved_results = json.loads(recorded_evidence.read_text(encoding="utf-8"))["results"]
-    saved_rag = [r for r in saved_results if r.get("method") == "rag" and "error" not in r]
-    if saved_rag:
-        estimated_query_tokens = sum(estimate_embedding_tokens(r["question"]) for r in saved_rag)
-        estimated_index_tokens = sum(estimate_embedding_tokens(json.dumps(r)) for r in records)
-        st.info(f"Embedding token estimates: approximately {estimated_query_tokens:,} across the {len(saved_rag)} recorded RAG queries (mean {estimated_query_tokens / len(saved_rag):.1f}); approximately {estimated_index_tokens:,} to embed the current {len(records)} policies once. These are rough estimates, not API-reported usage.")
-        st.caption(f"Method: {EMBEDDING_ESTIMATE_METHOD}. Calculated from saved questions and serialized policy text; excludes task framing and any provider truncation. Original measurements and generation-token totals are preserved.")
-    st.download_button("Download recorded evaluation and evidence notes", recorded_evidence.read_text(encoding="utf-8"), "policy_evaluation_2026-10-15.json", "application/json")
+    st.subheader("Recorded evaluation · 1 November 2026")
+    st.caption("10 questions / 30 fresh answers; 98 freshly built policy embeddings. Codex-assisted review against the CSV. One run per question and method, in fixed method order.")
+    comparison_paragraphs = recorded_comparison.read_text(encoding="utf-8").strip().split("\n\n")
+    st.markdown(comparison_paragraphs[0])
+    summary = json.loads(recorded_summary.read_text(encoding="utf-8"))
+    labels = {"rules": "Rules", "full_context": "Full context", "rag": "RAG"}
+    st.write("**Table 1. Answer quality - 10 questions per method**")
+    st.dataframe([{"Method": labels[r["method"]], "Correct / 10": r["correct"],
+                   "Partly correct": r["partly"], "Incorrect": r["incorrect"],
+                   "Unsupported answers": str(r["unsupported"]) + "/10"} for r in summary],
+                 hide_index=True, use_container_width=True)
+    st.write("**Table 2. Response time and tokens per answer**")
+    st.dataframe([{"Method": labels[r["method"]], "Mean seconds": round(r["mean_seconds"], 4),
+                   "Median seconds": round(r["median_seconds"], 4),
+                   "Mean LLM tokens": r["mean_llm_tokens"],
+                   "Mean embedding input tokens": r["mean_embedding_tokens"]} for r in summary],
+                 hide_index=True, use_container_width=True)
+    st.markdown(comparison_paragraphs[1])
+    st.download_button("Download recorded evaluation and evidence notes",
+                       recorded_evidence.read_text(encoding="utf-8"),
+                       "policy_evaluation_2026-11-01.json", "application/json")
 
 with st.expander("Policy database — source of truth"):
     st.dataframe(records, hide_index=True, use_container_width=True)

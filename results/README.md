@@ -1,3 +1,7 @@
+# Fresh evaluation - 1 November 2026
+
+The latest [raw export](raw_evaluation_2026-11-01.json), [reviewed evidence and protocol](evaluation_2026-11-01.json) and [summary](summary_2026-11-01.json) contain a complete new run: 98 fresh policy embeddings, 10 questions and 30 answers. All embedding input counts used in the new comparison come from countTokens with the same embedding model and text, separate from provider billing usage. Query-counting request time is included in response times. The review rubric is the same as below; the review was assisted by Codex. The two-paragraph comparison and current website use this new evaluation. The earlier results below remain historical evidence.
+
 # Evaluation protocol and evidence
 
 The final comparison covers ten distinct questions and 30 real answers. Each question was evaluated once per method; no measured answer, time or usage count was invented or changed. The raw exports preserve the original reviews. The consolidated file adds an explicitly attributed qualitative review and evidence notes.

@@ -1,0 +1,38 @@
+[
+  {
+    "method": "rules",
+    "correct": 1,
+    "partly": 8,
+    "incorrect": 1,
+    "unsupported": 0,
+    "mean_seconds": 0.0012799999999999999,
+    "median_seconds": 0.00115,
+    "mean_llm_tokens": 0,
+    "mean_embedding_tokens": 0,
+    "mean_counting_seconds": 0
+  },
+  {
+    "method": "full_context",
+    "correct": 10,
+    "partly": 0,
+    "incorrect": 0,
+    "unsupported": 0,
+    "mean_seconds": 0.99357,
+    "median_seconds": 1.0086,
+    "mean_llm_tokens": 4611.3,
+    "mean_embedding_tokens": 0,
+    "mean_counting_seconds": 0
+  },
+  {
+    "method": "rag",
+    "correct": 10,
+    "partly": 0,
+    "incorrect": 0,
+    "unsupported": 0,
+    "mean_seconds": 1.3158400000000001,
+    "median_seconds": 1.3860999999999999,
+    "mean_llm_tokens": 408.6,
+    "mean_embedding_tokens": 16.1,
+    "mean_counting_seconds": 0.1913
+  }
+]
