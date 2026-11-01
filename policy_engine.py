@@ -139,7 +139,21 @@ class Gemini:
         vector = response.get("embedding", {}).get("values")
         normalize(vector)
         usage = response.get("usageMetadata", {})
-        return vector, usage.get("totalTokenCount", usage.get("promptTokenCount"))
+        count = usage.get("promptTokenCount", usage.get("totalTokenCount"))
+        self.last_embedding_count_source = "api_usage_metadata" if count is not None else "not_reported"
+        self.last_embedding_count_seconds = 0
+        if count is None:
+            started = time.perf_counter()
+            try:
+                counted = self.request(self.embedding_model, "countTokens", {"contents": [body["content"]]})
+                candidate = counted.get("totalTokens")
+                if isinstance(candidate, int) and not isinstance(candidate, bool) and candidate >= 0:
+                    count = candidate
+                    self.last_embedding_count_source = "api_count_tokens"
+            except PolicyError:
+                pass  # Counting failure must not discard a successful embedding.
+            self.last_embedding_count_seconds = round(time.perf_counter() - started, 4)
+        return vector, count
 
     def generate(self, question, context):
         response = self.request(self.model, "generateContent", {
@@ -177,6 +191,7 @@ def build_index(client, records, cache_dir=ROOT / ".cache"):
             vector, count = client.embed(json.dumps(r), document=True)
             data["vectors"][r["id"]] = vector
             data["tokens"][r["id"]] = count
+            data.setdefault("token_sources", {})[r["id"]] = getattr(client, "last_embedding_count_source", "api_usage_metadata" if count is not None else "not_reported")
             temporary = cache.with_suffix(".tmp")
             temporary.write_text(json.dumps(data))
             temporary.replace(cache)
@@ -188,7 +203,8 @@ def build_index(client, records, cache_dir=ROOT / ".cache"):
              "policy_count": len(records), "index_tokens": sum(counts) if all(v is not None for v in counts) else None,
              "index_tokens_estimate": sum(estimate_embedding_tokens(json.dumps(r)) for r in records),
              "embedding_estimate_method": EMBEDDING_ESTIMATE_METHOD,
-             "index_tokens_source": "api_usage_metadata" if all(v is not None for v in counts) else "not_reported"}
+             "index_tokens_source": "see_index_token_sources" if all(v is not None for v in counts) else "not_reported",
+             "index_token_sources": {r["id"]: data.get("token_sources", {}).get(r["id"], "api_usage_metadata" if data["tokens"].get(r["id"]) is not None else "not_reported") for r in records}}
     return index, setup
 
 
@@ -230,8 +246,9 @@ def answer(question, method, records, client=None, index=None, k=5):
             "thinking_tokens": 0 if method == "rules" else usage.get("thoughtsTokenCount", 0),
             "llm_total_tokens": 0 if method == "rules" else usage.get("totalTokenCount"),
             "query_embedding_tokens": embedding_tokens,
+            "embedding_counting_seconds": getattr(client, "last_embedding_count_seconds", 0) if method == "rag" else 0,
             "query_embedding_tokens_estimate": estimate_embedding_tokens(question) if method == "rag" else 0,
-            "embedding_tokens_source": ("api_usage_metadata" if embedding_tokens is not None else "not_reported") if method == "rag" else "not_used",
+            "embedding_tokens_source": (getattr(client, "last_embedding_count_source", "api_usage_metadata") if embedding_tokens is not None else "not_reported") if method == "rag" else "not_used",
             "embedding_estimate_method": EMBEDDING_ESTIMATE_METHOD if method == "rag" else None,
             "raw_usage": usage,
             "created_at": datetime.now(timezone.utc).isoformat(),
