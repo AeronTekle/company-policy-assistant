@@ -45,12 +45,17 @@ with st.sidebar:
     if not key:
         st.warning("Add GEMINI_API_KEY in the app's Secrets settings to enable AI.")
     index = st.session_state.get("index")
+    fresh_index = st.checkbox("Rebuild embeddings for a fresh evaluation", value=False)
     if st.button("Prepare vector index", disabled=not key):
         try:
             with st.spinner("Encoding policies. Completed embeddings are saved for reuse…"):
                 import hashlib
                 fingerprint = hashlib.sha256(json.dumps(records).encode()).hexdigest()
-                st.session_state.index, st.session_state.index_setup = get_index(client, embedding_model, fingerprint)
+                if fresh_index:
+                    import tempfile
+                    st.session_state.index, st.session_state.index_setup = build_index(client, records, cache_dir=tempfile.mkdtemp(prefix="policy-evaluation-"))
+                else:
+                    st.session_state.index, st.session_state.index_setup = get_index(client, embedding_model, fingerprint)
             index = st.session_state.index
         except PolicyError as exc:
             st.error(str(exc))
